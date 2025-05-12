@@ -5,15 +5,14 @@ In density functional theory (DFT), wavefunctions, k-grid, and cutoff energies a
    - The wavefunctions determine the electron density, which is used to compute the total energy and other properties of the system.
    - In a plane-wave basis, wavefunctions are expressed as:
 
-     $$
-     \psi_{n,k}(r) = \sum_{G} c_{n,k,G} \exp(i(\mathbf{k} + \mathbf{G}) \cdot \mathbf{r}),
+     \[\psi_{n,k}(r) = \sum_{G} c_{n,k,G} \exp(i(\mathbf{k} + \mathbf{G}) \cdot \mathbf{r})\],
      where:
      - `r` is the position vector in real space,
      - `k` is a wavevector in the Brillouin zone,
      - `G` is a reciprocal lattice vector, and
      - `c_{n,k,G}` are the expansion coefficients.
-     $$
-     
+    
+
      where `k` is a wavevector in the Brillouin zone, `G` is a reciprocal lattice vector, and `c_{n,k,G}` are coefficients.
 
 ### 2. **k-Grid**

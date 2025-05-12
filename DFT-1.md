@@ -10,7 +10,6 @@ In density functional theory (DFT), wavefunctions, k-grid, and cutoff energies a
      ψ_{n,k}(r) = Σ_{G} c_{n,k,G} exp(i(k + G) · r)
      ```
      where `k` is a wavevector in the Brillouin zone, `G` is a reciprocal lattice vector, and `c_{n,k,G}` are coefficients.
->>>>>>> 13b6a17 (Auto commit)
 
 ### 2. **k-Grid**
    - The **k-grid** is a mesh of points in the Brillouin zone (reciprocal space) used to sample the wavevector `k`. Since wavefunctions and energies depend on `k`, DFT calculations integrate over the Brillouin zone to compute properties like total energy or electron density.

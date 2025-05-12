@@ -4,9 +4,9 @@ In density functional theory (DFT), wavefunctions, k-grid, and cutoff energies a
    - Wavefunctions (ψ) describe the quantum states of electrons in a system. In DFT, they are typically expanded in a basis set (e.g., plane waves) to solve the Kohn-Sham equations.
    - The wavefunctions determine the electron density, which is used to compute the total energy and other properties of the system.
    - In a plane-wave basis, wavefunctions are expressed as:
-     $$
-     \psi_{n,\mathbf{k}}(\mathbf{r}) = \sum_{\mathbf{G}} c_{n,\mathbf{k},\mathbf{G}} e^{i(\mathbf{k}+\mathbf{G})\cdot\mathbf{r}}
-    $$
+    
+
+     \psi_{n,\mathbf{k}}(\mathbf{r}) = \sum_{\mathbf{G}} c_{n,\mathbf{k},\mathbf{G}} e^{i(\mathbf{k}+\mathbf{G})\cdot\mathbf{r}}$
      where \( \mathbf{k} \) is a wavevector in the Brillouin zone, \( \mathbf{G} \) is a reciprocal lattice vector, and \( c_{n,\mathbf{k},\mathbf{G}} \) are coefficients.
 
 ### 2. **k-Grid**

@@ -14,15 +14,13 @@ This is your go-to resource for exploring the world of materials science startin
 
 - **Bloch's Theorem 🌊**:
   - Explains why electrons in periodic crystals form wavefunctions with a plane-wave component modulated by a periodic function.
-  - Includes notes and examples showing how Bloch's Theorem enables k-point sampling in Quantum ESPRESSO.
-
-- **Lattice Optimization 🔧**:
-  - Guides on relaxing crystal structures to their lowest-energy state using algorithms like BFGS.
-  - Covers input files, output analysis, and convergence criteria (energy, forces, pressure).
-
-- **Symmetry in Lattices 🔄**:
-  - Explores why symmetry is crucial for reducing computational cost and ensuring physical accuracy.
-  - Includes tutorials on identifying symmetry operations and their role in k-point grids.
+  - Includes notes and an interactive notebook.
+ 
+- **The Kronig-Penney Model**:
+  -The Kronig-Penney model is a one-dimensional model of a crystal formed by an infinite arrangement of delta function potentials (attractive or repulsive).
+  -In the provided Mathematica notebook, you’ll find a solution to this problem, which is a typical quantum mechanics problem.
+  -The notebook also demonstrates the crystal momentum and electron energy relationship.
+  -Manipulating the plot will also demonstrate how bands and band gaps are formed and what happens when the potential is increased.
 
 ### 2. Main Algorithms ⚙️
 

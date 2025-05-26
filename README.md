@@ -1,15 +1,12 @@
-# Computational Materials Modeling with DFT Repository 🧪💻
+# Computational Materials Modeling with the Fundamentals of Solid State 🧪💻
 
-Welcome to the Computational Materials Modeling with DFT repository! 🎉 This is your go-to resource for exploring the world of materials science through Density Functional Theory (DFT). This repository provides tutorials, examples, and interactive tools to master key concepts using Quantum ESPRESSO, Mathematica, and VESTA. We're currently focused on these tools, but is also valid to VASP or SIESTA in the future! 🚀
+This is your go-to resource for exploring the world of materials science starting from the fundamentals. This repository provides interactive tools to master key concepts using Mathematica. 🚀
 
 ## Repository Purpose 🌟
 
-This repository is dedicated to studying critical aspects of computational materials modeling:
-
-- **Educational Materials**: Clear explanations of foundational DFT concepts, like Bloch's Theorem and lattice symmetry.
-- **Practical Examples**: Input files, output analyses, and visualizations for Quantum ESPRESSO simulations.
-- **Interactive Tools**: Mathematica notebooks to explore parameters like energy cutoffs and k-points.
-- **Visualization Guides**: Tips for using VESTA to visualize crystal structures and electronic properties.
+- **Educational Materials**: Clear explanations of foundational Solid State and DFT concepts, like Bloch's Theorem.
+- **Practical Examples**: Input files, output analyses, and visualizations.
+- **Interactive Tools**: Mathematica notebooks to explore key concepts and start forming intuition about electronic properties.
 
 ## Repository Contents 📂
 

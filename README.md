@@ -1,4 +1,4 @@
-# Computational Materials Modeling with the Fundamentals of Solid State 🧪💻
+# Fundamentals of Solid State 🧪💻
 
 This is your go-to resource for exploring the world of materials science starting from the fundamentals. This repository provides interactive tools to master key concepts using Mathematica. 🚀
 

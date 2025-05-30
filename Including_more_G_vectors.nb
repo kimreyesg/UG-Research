@@ -1,0 +1,350 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     14295,        342]
+NotebookOptionsPosition[     13519,        320]
+NotebookOutlinePosition[     13989,        337]
+CellTagsIndexPosition[     13946,        334]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Influence of the number of reciprocal lattice Vectors.", "Title",
+ CellChangeTimes->{{3.957628426207293*^9, 
+  3.957628485591847*^9}},ExpressionUUID->"26caf0af-2724-4084-a3f7-\
+e6a7140569cc"],
+
+Cell[BoxData[{Cell[TextData[{
+  StyleBox["\[Bullet]",
+   FontColor->GrayLevel[0.5]],
+  " ",
+  StyleBox["G Vectors and Plane Waves:",
+   FontWeight->Bold],
+  " The G vectors are reciprocal lattice vectors, and each corresponds to a \
+plane wave component in the basis set. More G vectors mean more basis \
+functions are considered in the expansion of the wavefunctions."
+ }], "InlineItem",ExpressionUUID->
+  "a6fe11d1-12cf-42ff-aaa3-bd72253244d5"], "\n", Cell[TextData[{
+  StyleBox["\[Bullet]",
+   FontColor->GrayLevel[0.5]],
+  " ",
+  StyleBox["Hamiltonian Matrix:",
+   FontWeight->Bold],
+  " The size of the Hamiltonian matrix grows as you increase the number of G \
+vectors. This is because each G vector adds a row and a column to the \
+matrix."
+ }], "InlineItem",ExpressionUUID->
+  "05dd372c-73e5-424f-a416-6af8f60ce334"], "\n", Cell[TextData[{
+  StyleBox["\[Bullet]",
+   FontColor->GrayLevel[0.5]],
+  " ",
+  StyleBox["Energy Bands:",
+   FontWeight->Bold],
+  " When you solve the eigenvalue problem for the Hamiltonian matrix, the \
+eigenvalues represent the energy levels. More G vectors lead to more \
+eigenvalues, which appear as more bands in the band structure plot."
+ }], "InlineItem",ExpressionUUID->
+  "bdf21312-f613-4e28-b75b-8796387507b9"], "\n", Cell[TextData[{
+  StyleBox["\[Bullet]",
+   FontColor->GrayLevel[0.5]],
+  " ",
+  StyleBox["Accuracy and Detail:",
+   FontWeight->Bold],
+  " Including more plane waves generally increases the accuracy of the band \
+structure calculation, especially at higher energies. However, it also \
+increases computational complexity."
+ }], "InlineItem",ExpressionUUID->
+  "a2c17f93-53c1-4522-8fad-0f0ea00df86e"]}], "Text",
+ CellChangeTimes->{{3.9576284980047493`*^9, 3.9576284980061626`*^9}, 
+   3.957628568341416*^9},ExpressionUUID->"962e6ad9-938e-4267-85b6-\
+ddab910cec78"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", "  ", 
+  RowBox[{
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"V0", "=", "v0"}], ",", 
+       RowBox[{"maxG", "=", "maxg"}], ",", "G0", ",", "Glist", ",", "H", ",", 
+       "kVals", ",", "bands"}], "}"}], ",", "\[IndentingNewLine]", "    ", 
+     RowBox[{"(*", " ", 
+      RowBox[{"Constants", " ", "and", " ", "lattice", " ", "spacing"}], " ", 
+      "*)"}], "\[IndentingNewLine]", "    ", 
+     RowBox[{
+      RowBox[{"hbar", "=", "1"}], ";", "\[IndentingNewLine]", "    ", 
+      RowBox[{"m", "=", "1"}], ";", "\[IndentingNewLine]", "    ", 
+      RowBox[{"a", "=", "1"}], ";", " ", 
+      RowBox[{"(*", " ", 
+       RowBox[{"atomic", " ", "units"}], " ", "*)"}], "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", "    ", 
+      RowBox[{"(*", " ", 
+       RowBox[{"Define", " ", "G", " ", "vectors"}], " ", "*)"}], 
+      "\[IndentingNewLine]", "    ", 
+      RowBox[{"G0", "=", 
+       RowBox[{"2", "*", 
+        RowBox[{"Pi", "/", "a"}]}]}], ";", "\[IndentingNewLine]", "    ", 
+      RowBox[{"Glist", "=", 
+       RowBox[{"G0", "*", 
+        RowBox[{"Range", "[", 
+         RowBox[{
+          RowBox[{"-", "maxG"}], ",", "maxG"}], "]"}]}]}], ";", " ", 
+      RowBox[{"(*", " ", 
+       RowBox[{
+        RowBox[{
+        "list", " ", "of", " ", "reciprocal", " ", "lattice", " ", 
+         "vectors"}], ",", " ", 
+        RowBox[{
+        "we", " ", "are", " ", "expanding", " ", "our", " ", "wave", " ", 
+         "function", " ", "with", " ", "a", " ", "variable", " ", "number", " ",
+          "of", " ", "plane", " ", "waves"}]}], " ", "*)"}], 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", "    ", 
+      RowBox[{"(*", " ", 
+       RowBox[{"Define", " ", "potential"}], " ", "*)"}], 
+      "\[IndentingNewLine]", "    ", 
+      RowBox[{
+       RowBox[{"VG", "[", "G_", "]"}], ":=", 
+       RowBox[{"Which", "[", "\[IndentingNewLine]", "      ", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"G", "==", "G0"}], "||", 
+          RowBox[{"G", "==", 
+           RowBox[{"-", "G0"}]}]}], ",", 
+         RowBox[{"V0", "/", "2"}], ",", 
+         RowBox[{"(*", " ", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"if", " ", "G", " ", "is"}], " ", "+", 
+            RowBox[{"G0", " ", "or"}], " ", "-", "G0"}], ",", " ", 
+           RowBox[{"return", " ", 
+            RowBox[{"V0", "/", "2"}]}]}], " ", "*)"}], "\[IndentingNewLine]", 
+         "      ", "True", ",", "0"}], " ", 
+        RowBox[{"(*", " ", 
+         RowBox[{"otherwise", ",", " ", 
+          RowBox[{"return", " ", "0"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+        "    ", "]"}]}], ";", "\[IndentingNewLine]", "    ", 
+      "\[IndentingNewLine]", "    ", 
+      RowBox[{"(*", " ", 
+       RowBox[{"Define", " ", "Hamiltonian", " ", "matrix"}], " ", "*)"}], 
+      "\[IndentingNewLine]", "    ", 
+      RowBox[{
+       RowBox[{"H", "[", "kval_", "]"}], ":=", 
+       RowBox[{"Table", "[", "\[IndentingNewLine]", "      ", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"KroneckerDelta", "[", 
+            RowBox[{"G1", ",", "G2"}], "]"}], "*", 
+           RowBox[{"hbar", "^", "2"}], "*", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"kval", "+", "G1"}], ")"}], "^", "2"}], "/", 
+            RowBox[{"(", 
+             RowBox[{"2", "*", "m"}], ")"}]}]}], "+", 
+          RowBox[{"VG", "[", 
+           RowBox[{"G1", "-", "G2"}], "]"}]}], ",", "\[IndentingNewLine]", 
+         "      ", 
+         RowBox[{"{", 
+          RowBox[{"G1", ",", "Glist"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"G2", ",", "Glist"}], "}"}]}], "\[IndentingNewLine]", 
+        "    ", "]"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      "    ", 
+      RowBox[{"(*", " ", 
+       RowBox[{
+       "Evaluate", " ", "the", " ", "Hamiltonian", " ", "for", " ", 
+        "different", " ", "values", " ", "of", " ", "k", " ", "and", " ", 
+        "extract", " ", "energy", " ", "eigenvalues"}], " ", "*)"}], 
+      "\[IndentingNewLine]", "    ", 
+      RowBox[{"kVals", "=", 
+       RowBox[{"Range", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", "Pi"}], "/", "a"}], ",", 
+         RowBox[{"Pi", "/", "a"}], ",", "0.05"}], "]"}]}], ";", " ", 
+      RowBox[{"(*", " ", 
+       RowBox[{
+       "Generate", " ", "a", " ", "list", " ", "of", " ", "values", " ", "of",
+         " ", "the", " ", "crystal", " ", 
+        RowBox[{"momentum", ".", " ", "0.05"}], " ", "is", " ", "the", " ", 
+        "step", " ", "size", " ", 
+        RowBox[{"(", 
+         RowBox[{
+         "you", " ", "can", " ", "make", " ", "it", " ", "smaller", " ", 
+          "for", " ", "smoother", " ", "bands"}], ")"}]}], " ", "*)"}], 
+      "\[IndentingNewLine]", "    ", 
+      RowBox[{"bands", "=", 
+       RowBox[{"Table", "[", "\[IndentingNewLine]", "      ", 
+        RowBox[{
+         RowBox[{"Sort", "[", 
+          RowBox[{"Eigenvalues", "[", 
+           RowBox[{"H", "[", "k", "]"}], "]"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"k", ",", "kVals"}], "}"}]}], "\[IndentingNewLine]", "    ",
+         "]"}]}], ";", " ", 
+      RowBox[{"(*", " ", 
+       RowBox[{
+        RowBox[{
+        "Solve", " ", "the", " ", "eigenvalue", " ", "problem", " ", "and", " ",
+          "sort", " ", "ensures", " ", "the", " ", "eigenvalues", " ", "are", 
+         " ", "in", " ", "ascending", " ", "order", " ", "so", " ", "the", " ",
+          "band", " ", "1"}], ",", " ", 
+        RowBox[{"for", " ", "example"}], ",", " ", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"is", " ", "the", " ", "lowest"}], "..."}], " ", "The", " ",
+          "command", " ", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+          "loops", " ", "over", " ", "all", " ", "k", " ", "values", " ", 
+           "in", " ", "the", " ", "Brillouin", " ", "zone"}], "]"}]}]}], 
+       "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", "    ", 
+      RowBox[{"(*", " ", 
+       RowBox[{"Plot", " ", "the", " ", "band", " ", "structure"}], " ", 
+       "*)"}], "\[IndentingNewLine]", "    ", 
+      RowBox[{"ListLinePlot", "[", 
+       RowBox[{
+        RowBox[{"Transpose", "[", "bands", "]"}], ",", 
+        RowBox[{"DataRange", "->", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"-", "Pi"}], "/", "a"}], ",", 
+           RowBox[{"Pi", "/", "a"}]}], "}"}]}], ",", 
+        RowBox[{"PlotRange", "->", "All"}], ",", 
+        RowBox[{"AxesLabel", "->", 
+         RowBox[{"{", 
+          RowBox[{"\"\<k\>\"", ",", "\"\<Energy\>\""}], "}"}]}], ",", 
+        RowBox[{"PlotLegends", "->", "Automatic"}], ",", 
+        RowBox[{"PlotStyle", "->", "Thick"}]}], "]"}]}]}], 
+    "\[IndentingNewLine]", "  ", "]"}], ",", "\[IndentingNewLine]", "  ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"v0", ",", "6", ",", "\"\<V0\>\""}], "}"}], ",", "1", ",", 
+     "20"}], "}"}], ",", "\[IndentingNewLine]", "  ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"maxg", ",", "2", ",", "\"\<Number of G vectors\>\""}], "}"}], ",",
+      "1", ",", "10", ",", "1"}], "}"}]}], "\[IndentingNewLine]", 
+  "]"}]], "Input",
+ CellLabel->"In[14]:=",ExpressionUUID->"2f5fe0dd-b5ac-4020-bdbd-a8541903af9a"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`maxg$$ = 1, $CellContext`v0$$ = 1., 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`v0$$], 6, "V0"}, 1, 20, ControlType -> 
+      Manipulator}, {{
+       Hold[$CellContext`maxg$$], 2, "Number of G vectors"}, 1, 10, 1, 
+      ControlType -> Manipulator}}, Typeset`size$$ = {
+    413.4216796875, {114.67839368329406`, 120.41032727704403`}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True, 
+    Typeset`keyframeActionsQ$$ = False, Typeset`keyframeList$$ = {}}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`maxg$$ = 2, $CellContext`v0$$ = 6}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$, Typeset`keyframeActionsQ$$, 
+        Typeset`keyframeList$$}, "Body" :> 
+      Module[{$CellContext`V0 = $CellContext`v0$$, $CellContext`maxG = \
+$CellContext`maxg$$, $CellContext`G0, $CellContext`Glist, $CellContext`H, \
+$CellContext`kVals, $CellContext`bands}, $CellContext`hbar = 
+         1; $CellContext`m = 1; $CellContext`a = 1; $CellContext`G0 = 
+         2 (Pi/$CellContext`a); $CellContext`Glist = $CellContext`G0 
+          Range[-$CellContext`maxG, $CellContext`maxG]; $CellContext`VG[
+           Pattern[$CellContext`G, 
+            Blank[]]] := Which[
+           
+           Or[$CellContext`G == $CellContext`G0, $CellContext`G == \
+-$CellContext`G0], $CellContext`V0/2, True, 0]; $CellContext`H[
+           Pattern[$CellContext`kval, 
+            Blank[]]] := 
+         Table[KroneckerDelta[$CellContext`G1, $CellContext`G2] \
+$CellContext`hbar^2 (($CellContext`kval + $CellContext`G1)^2/(
+             2 $CellContext`m)) + $CellContext`VG[$CellContext`G1 - \
+$CellContext`G2], {$CellContext`G1, $CellContext`Glist}, {$CellContext`G2, \
+$CellContext`Glist}]; $CellContext`kVals = 
+         Range[(-Pi)/$CellContext`a, Pi/$CellContext`a, 
+           0.05]; $CellContext`bands = Table[
+           Sort[
+            Eigenvalues[
+             $CellContext`H[$CellContext`k]]], {$CellContext`k, \
+$CellContext`kVals}]; ListLinePlot[
+          Transpose[$CellContext`bands], 
+          DataRange -> {(-Pi)/$CellContext`a, Pi/$CellContext`a}, PlotRange -> 
+          All, AxesLabel -> {"k", "Energy"}, PlotLegends -> Automatic, 
+          PlotStyle -> Thick]], 
+      "Specifications" :> {{{$CellContext`v0$$, 6, "V0"}, 1, 
+         20}, {{$CellContext`maxg$$, 2, "Number of G vectors"}, 1, 10, 1}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{
+      462.52167968749995`, {177.14881909833312`, 182.88075269208312`}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.957628522928406*^9},
+ CellLabel->"Out[14]=",ExpressionUUID->"4468587a-48eb-4267-b9a5-38dc0e2a3119"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1584, 911},
+WindowMargins->{{Automatic, -1772}, {Automatic, -14}},
+FrontEndVersion->"14.2 for Mac OS X ARM (64-bit) (March 16, 2025)",
+StyleDefinitions->FrontEnd`FileName[{"Report"}, "StandardReport.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"27b3fb83-3e49-449b-9862-4d018479efac"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 197, 3, 95, "Title",ExpressionUUID->"26caf0af-2724-4084-a3f7-e6a7140569cc"],
+Cell[776, 27, 1823, 43, 215, "Text",ExpressionUUID->"962e6ad9-938e-4267-85b6-ddab910cec78"],
+Cell[CellGroupData[{
+Cell[2624, 74, 7323, 172, 755, "Input",ExpressionUUID->"2f5fe0dd-b5ac-4020-bdbd-a8541903af9a"],
+Cell[9950, 248, 3541, 68, 384, "Output",ExpressionUUID->"4468587a-48eb-4267-b9a5-38dc0e2a3119"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

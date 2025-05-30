@@ -30,4 +30,5 @@ This is your go-to resource for exploring the world of materials science, starti
   - Numerical skills: You practice constructing and solving matrix eigenvalue problems, which is essential in computational physics.
 
 - **Including More G Vectors 🤖**:
-  -  Observe the effects of increasing the number of plane wave components when calculating a band structure in this Manipulate plot using the code of electrons interacting with a periodic potential. What is the main change and how can be useful?
+  -  Observe the impact of increasing the number of plane wave components when calculating a band structure in this Manipulate plot using the code of electrons interacting with a periodic potential.
+  - Additionally, observe the effects of increasing the potential.

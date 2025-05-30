@@ -17,7 +17,7 @@ This is your go-to resource for exploring the world of materials science, starti
   - Includes notes and an interactive notebook.
  
 - **The Kronig-Penney Model ⚙️**:
-  - The Kronig-Penney model is a one-dimensional model of a crystal formed by an infinite arrangement of delta function potentials (attractive or repulsive).
+  - The Kronig-Penney model is a one-dimensional model of a crystal formed by an infinite arrangement of delta function potentials (here just the repulsive case).
   - In the provided Mathematica notebook, you’ll find a solution to this problem, which is a typical quantum mechanics problem.
   The notebook also illustrates the relationship between crystal momentum and electron energy.
   - Manipulating the plot will also demonstrate how bands and band gaps are formed and what happens when the potential is increased.

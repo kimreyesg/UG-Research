@@ -32,3 +32,6 @@ This is your go-to resource for exploring the world of materials science, starti
 - **Including More G Vectors 🤖**:
   -  Observe the impact of increasing the number of plane wave components when calculating a band structure in this Manipulate plot using the code of electrons interacting with a periodic potential.
   - Additionally, observe the effects of increasing the potential.
+ 
+- **The Nearly-Free Electron Model 🫧**:
+  - Explanation of the Nearly-Free Electron Model and the application of the degenerate perturbation model.

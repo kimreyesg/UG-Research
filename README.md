@@ -26,8 +26,8 @@ This is your go-to resource for exploring the world of materials science, starti
   - Manipulating the plot will also demonstrate how bands and band gaps are formed and what happens when the potential is increased.
 
  - **The Kronig-Penney Model (Attractive) 🎯**:
-  - This simulation demonstrates why energy bands form and how degeneracy is lifted as we modify the a/ℓ ratio.
-  - Key for introducing the Tight Binding Model.
+    - This simulation demonstrates why energy bands form and how degeneracy is lifted as we modify the a/ℓ ratio.
+    - Key for introducing the Tight Binding Model.
     
 - **Electrons Interacting with a Periodic Potential🫆**:
   - Band formation: You see how energy bands emerge from free electron states when a periodic potential is added.

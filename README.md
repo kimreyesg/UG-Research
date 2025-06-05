@@ -12,6 +12,8 @@ This is your go-to resource for exploring the world of materials science, starti
 
 ### 1. Foundational Concepts 📚
 
+The band structure is fixed by the crystal, but the electronic properties depend on how electrons fill it
+
 - **Bloch's Theorem 🌊**:
   - Explains why electrons in periodic crystals form wavefunctions with a plane-wave component modulated by a periodic function.
   - Includes notes and an interactive notebook.
@@ -30,8 +32,11 @@ This is your go-to resource for exploring the world of materials science, starti
   - Numerical skills: You practice constructing and solving matrix eigenvalue problems, which is essential in computational physics.
 
 - **Including More G Vectors 🤖**:
-  -  Observe the impact of increasing the number of plane wave components when calculating a band structure in this Manipulate plot using the code of electrons interacting with a periodic potential.
-  - Additionally, observe the effects of increasing the potential.
+  -  Observe the impact of increasing the number of plane wave components when calculating a band structure in this Manipulate plot using the code for electrons interacting with a periodic potential.
+  -  Additionally, observe the effects of increasing the potential.
  
 - **The Nearly-Free Electron Model 🫧**:
-  - Explanation of the Nearly-Free Electron Model and the application of the degenerate perturbation model.
+- Explain the Nearly-Free Electron Model and its application of the degenerate perturbation model.
+- Explain why the Fourier transform is important in this context.
+- Demonstrate how inner products are used in the process, ultimately leading to a nice quantum mechanics problem.
+- How can we eliminate degeneracy in the band edge of a free electron model that has been slightly perturbed?

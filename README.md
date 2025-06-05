@@ -41,3 +41,13 @@ This is your go-to resource for exploring the world of materials science, starti
   - Explain why the Fourier transform is important in this context.
   - Demonstrate how inner products are used in the process, ultimately leading to a nice quantum mechanics problem.
   - How can we eliminate degeneracy in the band edge of a free electron model that has been slightly perturbed?
+
+
+
+
+
+*Cohen, M. L., & Louie, S. G. (2016). Fundamentals of condensed matter physics. Cambridge University Press.*
+
+
+
+  

@@ -12,16 +12,17 @@ This is your go-to resource for exploring the world of materials science, starti
 
 ### 1. Foundational Concepts 📚
 
-The band structure is fixed by the crystal, but the electronic properties depend on how electrons fill it
+*The band structure is fixed by the crystal, but the electronic properties depend on how electrons fill it*
 
 - **Bloch's Theorem 🌊**:
   - Explains why electrons in periodic crystals form wavefunctions with a plane-wave component modulated by a periodic function.
   - Includes notes and an interactive notebook.
  
 - **The Kronig-Penney Model ⚙️**:
-  - The Kronig-Penney model is a one-dimensional model of a crystal formed by an infinite arrangement of delta function potentials (here just the repulsive case).
+  - The Kronig-Penney model is a one-dimensional model of a crystal formed by an infinite arrangement of delta function potentials (here, the repulsive case).
+  - This model does not produce bound states; therefore is not appropriate for illustrating atomic-like systems.
   - In the provided Mathematica notebook, you’ll find a solution to this problem, which is a typical quantum mechanics problem.
-  The notebook also illustrates the relationship between crystal momentum and electron energy.
+  - The notebook also illustrates the relationship between crystal momentum and electron energy.
   - Manipulating the plot will also demonstrate how bands and band gaps are formed and what happens when the potential is increased.
 
 - **Electrons Interacting with a Periodic Potential🫆**:

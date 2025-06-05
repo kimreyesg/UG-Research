@@ -1,0 +1,610 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     26717,        602]
+NotebookOptionsPosition[     25636,        577]
+NotebookOutlinePosition[     26028,        593]
+CellTagsIndexPosition[     25985,        590]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Attractive Kronig-Penney Model", "Title",
+ CellChangeTimes->{{3.9572729482255793`*^9, 3.9572729510187187`*^9}, 
+   3.958140930085466*^9, {3.958140973644458*^9, 
+   3.958140999301538*^9}},ExpressionUUID->"10fabda7-b837-4b0b-9a8a-\
+0faf6baa3300"],
+
+Cell["Greis J . Kim Reyes", "Author",
+ CellChangeTimes->{{3.958141009885784*^9, 
+  3.958141025887735*^9}},ExpressionUUID->"d8373b6b-19a9-4f0f-a488-\
+d9f568bf79a5"],
+
+Cell["SUNY New Paltz", "Affiliation",
+ CellChangeTimes->{{3.958141033222981*^9, 
+  3.958141040885775*^9}},ExpressionUUID->"662a0058-fc02-42a3-aea8-\
+4a1e8ca2ea6a"],
+
+Cell[TextData[{
+ "\n- In the Repulsive Kronig-Penney model studies in another notebook, we \
+were able to understand how band energies are created, and in this model, we \
+will understand why these are created.\n\n- In the Kronig\[Dash]Penney model \
+(Attractive), we are able to find a bound state for a negative potential, \
+and, for N isolated delta functions, this state is N-fold degenerate.\n\n- \
+Each well still has its own bound state, with energy ",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       SubscriptBox[
+        StyleBox["E", "TI"], "0"], TraditionalForm], "errors" -> {}, "input" -> 
+     "E_0", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "8c72db60-8af2-49f7-868a-e7844886895d"],
+ " as solved using the transcendental equation:\n\n",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{"cos", 
+         RowBox[{"(", 
+           StyleBox["k", "TI"], ")"}], "\[LongEqual]", "cosh", 
+         RowBox[{"(", "\[Phi]", ")"}], "+", 
+         StyleBox["P", "TI"], 
+         FractionBox[
+          RowBox[{"sinh", "(", "\[Phi]", ")"}], "\[Phi]"]}], TraditionalForm],
+      "errors" -> {}, "input" -> 
+     "\\cos(k)=\\cosh(\\phi)+P\\frac{\\sinh(\\phi)}{\\phi}", "state" -> 
+     "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "e0cfc913-d706-4915-bf77-3a65e8fbf3da"],
+ "\ncompared with the repulsive case, here we obtain bound state and not \
+scattering states. and the solved energy will depend on the ratio between the \
+separation of the wells, and the radius of the bound-state electron l \
+(complete derivation in Cohen, M. L., & Louie, S. G. (2016). Fundamentals of \
+condensed matter physics. Cambridge University Press.).\n\n",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         StyleBox["E", "TI"], "\[LongEqual]", 
+         SubscriptBox[
+          StyleBox["E", "TI"], "0"], "+", "4", 
+         SubscriptBox[
+          StyleBox["E", "TI"], "0"], 
+         SuperscriptBox[
+          StyleBox["e", "TI"], 
+          RowBox[{"-", 
+            StyleBox["a", "TI"], "/", 
+            StyleBox["l", "TI"]}]], "cos", 
+         RowBox[{"(", 
+           RowBox[{
+             StyleBox["k", "TI"], 
+             StyleBox["a", "TI"]}], ")"}]}], TraditionalForm], "errors" -> {},
+      "input" -> "E=E_0+4E_0e^{-a/l}\\cos(ka)", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "2b3fc021-d404-4d53-a54a-8c4abdbb352e"],
+ "\n\nfor a/l big, the second term is not significant, and we will have a \
+degenerate state.\n\n- Since there are no interactions between the wells, \
+these states are identical and independent.\n\n\|01f449 The  degeneracy is: \
+not multiple energies per k, but multiple identical localized states with the \
+same energy.\n\n\nhowever when a/l is small, the second term is relevant and \
+will be ruled by the cos(ka). \n\nIf initially we have N wells, we have N \
+identical bound states, each well has one electron states at E_0. N-fold \
+degenerate level (all with the same energy E0)\n\nOf course, when wells \
+\[OpenCurlyDoubleQuote]interact\[CloseCurlyDoubleQuote] the N-fold degeneracy \
+must split into exactly N distinct levels.\n\nEach k describes a different \
+standing wave pattern across the N wells.\n\nThe electronic structure will \
+indicate several energetic levels that before where just one N degenerate, if \
+we start filling up with electrons in this structure so the distribution will \
+be dictated by the wave function (Quantum stuff):\n\nLowest energy state (k\
+\:2081): First electron goes here, spread across all wells\nNext energy state \
+(k\:2082): Second electron goes here, different delocalization\nAnd so on...\n\
+\nThe following interactive simulation will show you why bands are created, \
+and how the degeneracy is lifted as we modify the ratio a/l. If atoms are \
+isolated, the energy levels are sharp. As the distance between the atoms gets \
+smaller, the tails of the exponential bound-state wavefunctions \
+\[OpenCurlyDoubleQuote]feel\[CloseCurlyDoubleQuote] each other and interact (\
+\:26a1 Strong quantum tunneling between atoms). This causes the energy levels \
+to spread out into bands of levels."
+}], "Text",
+ CellChangeTimes->{
+  3.957273018230852*^9, {3.957273055356732*^9, 3.957273056904213*^9}, {
+   3.957273092205329*^9, 3.95727309282742*^9}, 3.9572731304867897`*^9, {
+   3.95762684076654*^9, 3.9576268605350924`*^9}, {3.958134197444736*^9, 
+   3.958134199051744*^9}, 3.958140911378189*^9, {3.9581411923661823`*^9, 
+   3.958141217137739*^9}, {3.9581412798655443`*^9, 3.958141351650881*^9}, {
+   3.958141428598406*^9, 3.958141470112773*^9}, {3.958141500609495*^9, 
+   3.958141566265992*^9}, {3.958141679769569*^9, 3.95814169830342*^9}, {
+   3.9581418150217*^9, 3.958141975367593*^9}, {3.958142008180449*^9, 
+   3.958142178625198*^9}, {3.9581422452297087`*^9, 3.958142360271264*^9}, {
+   3.958142396911356*^9, 3.958142500652873*^9}, {3.95814258392505*^9, 
+   3.95814261619666*^9}, {3.958142679409128*^9, 3.958142708952352*^9}, {
+   3.9581427447714863`*^9, 3.9581427645297422`*^9}, {3.958142826406947*^9, 
+   3.958142833566609*^9}, {3.9581428827638083`*^9, 3.958142895795484*^9}, {
+   3.958142969611453*^9, 3.958142980493672*^9}, {3.9581432325093307`*^9, 
+   3.958143234293643*^9}},ExpressionUUID->"c4075785-2f88-47ae-92ee-\
+96cd0163b120"],
+
+Cell[BoxData["Quit"], "Input",
+ CellChangeTimes->{{3.958135966855571*^9, 3.9581359699606657`*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"69dd8307-5b92-468d-b6d2-db7a50f9820f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{"Physical", " ", "parameters", " ", "from", " ", "Kronig"}], "-", 
+        RowBox[{"Penney", " ", "model"}]}], "*)"}], "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"E0", "=", 
+        RowBox[{"-", "1.5"}]}], ",", 
+       RowBox[{"(*", 
+        RowBox[{"Base", " ", "bound", " ", "state", " ", "energy"}], "*)"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{"ell", "=", "1.0"}], ",", 
+       RowBox[{"(*", 
+        RowBox[{"Characteristic", " ", "length", " ", "scale"}], "*)"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{"N", "=", "5"}], ",", 
+       RowBox[{"(*", 
+        RowBox[{"Number", " ", "of", " ", "wells"}], "*)"}], 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{"Calculate", " ", "interaction", " ", "strength"}], "*)"}], 
+       "\[IndentingNewLine]", "interaction", ",", "kValues", ",", 
+       "energyLevels", ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{"Plotting", " ", "variables"}], "*)"}], "\[IndentingNewLine]",
+        "energyPlot", ",", "wellPositions"}], "\[IndentingNewLine]", "}"}], ",",
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"Step", " ", "1"}], ":", 
+       RowBox[{"Calculate", " ", 
+        RowBox[{"tunneling", "/", "interaction"}], " ", "strength"}]}], 
+      "*)"}], "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"interaction", "=", 
+       RowBox[{"4", "*", "E0", "*", 
+        RowBox[{"Exp", "[", 
+         RowBox[{
+          RowBox[{"-", "spacing"}], "/", "ell"}], "]"}]}]}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Step", " ", "2"}], ":", 
+         RowBox[{"For", " ", "N", " ", "wells"}]}], ",", 
+        RowBox[{
+        "we", " ", "get", " ", "N", " ", "discrete", " ", "k", " ", 
+         "values"}]}], "*)"}], 
+      RowBox[{"(*", 
+       RowBox[{
+       "Each", " ", "k", " ", "corresponds", " ", "to", " ", "a", " ", 
+        "different", " ", "energy", " ", "eigenstate"}], "*)"}], 
+      RowBox[{"kValues", "=", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"Pi", "*", 
+          RowBox[{"n", "/", 
+           RowBox[{"(", 
+            RowBox[{"N", "*", "spacing"}], ")"}]}]}], ",", 
+         RowBox[{"{", 
+          RowBox[{"n", ",", "1", ",", "N"}], "}"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Step", " ", "3"}], ":", 
+         RowBox[{
+          RowBox[{"Apply", " ", "Kronig"}], "-", 
+          RowBox[{"Penney", " ", "formula", " ", "E"}]}]}], "=", 
+        RowBox[{"E\:2080", "+", 
+         RowBox[{"4", 
+          RowBox[{"E\:2080e", "^", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", "a"}], "/", "\[ScriptL]"}], ")"}]}], "cos", 
+          RowBox[{"(", "ka", ")"}]}]}]}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"energyLevels", "=", 
+       RowBox[{"Table", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"E0", "+", 
+          RowBox[{"interaction", "*", 
+           RowBox[{"Cos", "[", 
+            RowBox[{"k", "*", "spacing"}], "]"}]}]}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"{", 
+          RowBox[{"k", ",", "kValues"}], "}"}]}], "\[IndentingNewLine]", 
+        "]"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{"Step", " ", "4"}], ":", 
+        RowBox[{
+        "Mark", " ", "well", " ", "positions", " ", "for", " ", 
+         "reference"}]}], "*)"}], 
+      RowBox[{"wellPositions", "=", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"n", "*", "spacing"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"n", ",", 
+           RowBox[{
+            RowBox[{"-", 
+             RowBox[{"(", 
+              RowBox[{"N", "-", "1"}], ")"}]}], "/", "2"}], ",", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"N", "-", "1"}], ")"}], "/", "2"}]}], "}"}]}], "]"}]}], ";",
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{"Step", " ", "5"}], ":", 
+        RowBox[{
+        "Create", " ", "focused", " ", "energy", " ", "level", " ", 
+         "plot"}]}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"energyPlot", "=", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{
+           "Background", " ", "showing", " ", "well", " ", "positions"}], 
+           "*)"}], "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"Gray", ",", 
+             RowBox[{"Opacity", "[", "0.3", "]"}], ",", "\[IndentingNewLine]", 
+             RowBox[{"Table", "[", 
+              RowBox[{
+               RowBox[{"Rectangle", "[", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"pos", "-", "0.1"}], ",", 
+                   RowBox[{"E0", "-", "3"}]}], "}"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"pos", "+", "0.1"}], ",", 
+                   RowBox[{"E0", "+", "3"}]}], "}"}]}], "]"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"pos", ",", "wellPositions"}], "}"}]}], "]"}]}], 
+            "}"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           RowBox[{"(*", 
+            RowBox[{
+            "Energy", " ", "levels", " ", "as", " ", "thick", " ", 
+             "horizontal", " ", "lines"}], "*)"}], "\[IndentingNewLine]", 
+           RowBox[{"{", 
+            RowBox[{"Red", ",", "Thick", ",", "\[IndentingNewLine]", 
+             RowBox[{"Table", "[", 
+              RowBox[{
+               RowBox[{"Line", "[", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"-", "5"}], ",", 
+                    RowBox[{"energyLevels", "[", 
+                    RowBox[{"[", "i", "]"}], "]"}]}], "}"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"5", ",", 
+                    RowBox[{"energyLevels", "[", 
+                    RowBox[{"[", "i", "]"}], "]"}]}], "}"}]}], "}"}], "]"}], ",",
+                "\[IndentingNewLine]", 
+               RowBox[{"{", 
+                RowBox[{"i", ",", 
+                 RowBox[{"Length", "[", "energyLevels", "]"}]}], "}"}]}], 
+              "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+           "\[IndentingNewLine]", 
+           RowBox[{"(*", 
+            RowBox[{"Labels", " ", "for", " ", "energy", " ", "levels"}], 
+            "*)"}], "\[IndentingNewLine]", 
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"Text", "[", 
+              RowBox[{
+               RowBox[{"Style", "[", 
+                RowBox[{
+                 RowBox[{"\"\<k\>\"", "<>", 
+                  RowBox[{"ToString", "[", "i", "]"}]}], ",", "12", ",", 
+                 "Bold"}], "]"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"3.2", ",", 
+                 RowBox[{"energyLevels", "[", 
+                  RowBox[{"[", "i", "]"}], "]"}]}], "}"}]}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"i", ",", 
+               RowBox[{"Length", "[", "energyLevels", "]"}]}], "}"}]}], "]"}],
+            ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           RowBox[{"(*", 
+            RowBox[{"Reference", " ", "line", " ", "for", " ", "E\:2080"}], 
+            "*)"}], "\[IndentingNewLine]", 
+           RowBox[{"{", 
+            RowBox[{"Black", ",", "Dashed", ",", 
+             RowBox[{"Line", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"-", "5"}], ",", "E0"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"5", ",", "E0"}], "}"}]}], "}"}], "]"}]}], "}"}], ",", 
+           RowBox[{"Text", "[", 
+            RowBox[{
+             RowBox[{"Style", "[", 
+              RowBox[{
+               RowBox[{"Subscript", "[", 
+                RowBox[{"\"\<E\>\"", ",", "\"\<0\>\""}], "]"}], ",", "12", ",",
+                "Bold"}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"3.2", ",", "E0"}], "}"}]}], "]"}]}], "}"}], ",", 
+         "\[IndentingNewLine]", "\[IndentingNewLine]", 
+         RowBox[{"(*", 
+          RowBox[{"Plot", " ", "formatting"}], "*)"}], "\[IndentingNewLine]", 
+         
+         RowBox[{"PlotRange", "->", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"-", "5"}], ",", "5"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"E0", "-", "3"}], ",", 
+              RowBox[{"E0", "+", "3"}]}], "}"}]}], "}"}]}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"Frame", "->", "True"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"FrameLabel", "->", 
+          RowBox[{"{", 
+           RowBox[{"\"\<Position\>\"", ",", "\"\<Energy\>\""}], "}"}]}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"FrameStyle", "->", "Black"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"Background", "->", "White"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"ImageSize", "->", "Large"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{"Step", " ", "6"}], ":", 
+        RowBox[{
+        "Add", " ", "title", " ", "with", " ", "key", " ", "physics", " ", 
+         "parameters"}]}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"Grid", "[", 
+       RowBox[{
+        RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"{", "energyPlot", "}"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"{", 
+           RowBox[{"Style", "[", 
+            RowBox[{
+             RowBox[{"Row", "[", 
+              RowBox[{"{", "\[IndentingNewLine]", 
+               
+               RowBox[{"\"\<Kronig-Penney Model: \>\"", ",", 
+                "\[IndentingNewLine]", "\"\<a/\[ScriptL] = \>\"", ",", 
+                RowBox[{"NumberForm", "[", 
+                 RowBox[{
+                  RowBox[{"spacing", "/", "ell"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"3", ",", "2"}], "}"}]}], "]"}], ",", 
+                "\[IndentingNewLine]", "\"\<   Interaction = \>\"", ",", 
+                RowBox[{"NumberForm", "[", 
+                 RowBox[{"interaction", ",", 
+                  RowBox[{"{", 
+                   RowBox[{"4", ",", "3"}], "}"}]}], "]"}], ",", 
+                "\[IndentingNewLine]", "\"\<   Splitting = \>\"", ",", 
+                RowBox[{"NumberForm", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"Max", "[", "energyLevels", "]"}], "-", 
+                   RowBox[{"Min", "[", "energyLevels", "]"}]}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"4", ",", "3"}], "}"}]}], "]"}]}], "}"}], "]"}], ",",
+              "14", ",", "Bold"}], "]"}], "}"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"{", 
+           RowBox[{"Style", "[", 
+            RowBox[{
+             RowBox[{"Row", "[", 
+              RowBox[{"{", "\[IndentingNewLine]", 
+               
+               RowBox[{"\"\<E = E\:2080 + 4E\:2080e^(-a/\[ScriptL])cos(ka)   \
+\>\"", ",", "\[IndentingNewLine]", 
+                RowBox[{"If", "[", 
+                 RowBox[{
+                  RowBox[{"spacing", ">", 
+                   RowBox[{"2", "*", "ell"}]}], ",", 
+                  "\[IndentingNewLine]", "\"\<Weak interaction: levels nearly \
+degenerate\>\"", ",", "\"\<Strong interaction: degeneracy fully lifted\>\""}],
+                  "]"}]}], "}"}], "]"}], ",", "12"}], "]"}], "}"}]}], 
+         "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"Alignment", "->", "Center"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"Spacings", "->", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "1"}], "}"}]}]}], "]"}]}]}], "]"}], ",", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Control", " ", "slider"}], "*)"}], 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"spacing", ",", "1.5", ",", "\"\<Lattice spacing (a)\>\""}], 
+      "}"}], ",", "0.3", ",", "8.0", ",", "0.05", ",", 
+     RowBox[{"Appearance", "->", "\"\<Labeled\>\""}]}], "}"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.9581369194531937`*^9, 3.958136919456308*^9}, {
+   3.958137785805543*^9, 3.958137897727895*^9}, {3.958137945665311*^9, 
+   3.95813810008908*^9}, {3.95813815270149*^9, 3.958138272001092*^9}, {
+   3.958138354334819*^9, 3.958138375947363*^9}, {3.9581384420143414`*^9, 
+   3.958138444101215*^9}, {3.958138487512025*^9, 3.958138506362245*^9}, 
+   3.9581388434726343`*^9, {3.9581390072975693`*^9, 3.958139009155514*^9}, {
+   3.958139114014574*^9, 3.9581391157094193`*^9}},
+ CellLabel->"In[9]:=",ExpressionUUID->"e6b4f818-c3be-447b-bf52-409fceb175b8"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`spacing$$ = 1., Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`spacing$$], 1.5, "Lattice spacing (a)"}, 0.3, 8., 
+      0.05, ControlType -> Manipulator}}, Typeset`size$$ = {
+    619.4835937500001, {202.00860091145836`, 207.74053450520836`}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True, 
+    Typeset`keyframeActionsQ$$ = False, Typeset`keyframeList$$ = {}}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`spacing$$ = 1.5}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$, Typeset`keyframeActionsQ$$, 
+        Typeset`keyframeList$$}, "Body" :> 
+      Module[{$CellContext`E0$ = -1.5, $CellContext`ell$ = 1., N$ = 
+         5, $CellContext`interaction$, $CellContext`kValues$, \
+$CellContext`energyLevels$, $CellContext`energyPlot$, \
+$CellContext`wellPositions$}, $CellContext`interaction$ = 
+         4 $CellContext`E0$ 
+          Exp[(-$CellContext`spacing$$)/$CellContext`ell$]; \
+$CellContext`kValues$ = 
+         Table[Pi ($CellContext`n/(
+            N$ $CellContext`spacing$$)), {$CellContext`n, 1, 
+            N$}]; $CellContext`energyLevels$ = 
+         Table[$CellContext`E0$ + $CellContext`interaction$ 
+            Cos[$CellContext`k $CellContext`spacing$$], {$CellContext`k, \
+$CellContext`kValues$}]; $CellContext`wellPositions$ = 
+         Table[$CellContext`n $CellContext`spacing$$, {$CellContext`n, (-(N$ - 
+              1))/2, (N$ - 1)/2}]; $CellContext`energyPlot$ = Graphics[{{Gray, 
+             Opacity[0.3], 
+             Table[
+              
+              Rectangle[{$CellContext`pos - 0.1, $CellContext`E0$ - 
+                3}, {$CellContext`pos + 0.1, $CellContext`E0$ + 
+                3}], {$CellContext`pos, $CellContext`wellPositions$}]}, {
+            Red, Thick, 
+             Table[
+              Line[{{-5, 
+                 Part[$CellContext`energyLevels$, $CellContext`i]}, {5, 
+                 
+                 Part[$CellContext`energyLevels$, $CellContext`i]}}], \
+{$CellContext`i, 
+               Length[$CellContext`energyLevels$]}]}, 
+            Table[
+             Text[
+              Style["k" <> ToString[$CellContext`i], 12, Bold], {3.2, 
+               
+               Part[$CellContext`energyLevels$, $CellContext`i]}], \
+{$CellContext`i, 
+              Length[$CellContext`energyLevels$]}], {Black, Dashed, 
+             Line[{{-5, $CellContext`E0$}, {5, $CellContext`E0$}}]}, 
+            Text[
+             Style[
+              Subscript["E", "0"], 12, Bold], {3.2, $CellContext`E0$}]}, 
+           PlotRange -> {{-5, 
+             5}, {$CellContext`E0$ - 3, $CellContext`E0$ + 3}}, Frame -> True,
+            FrameLabel -> {"Position", "Energy"}, FrameStyle -> Black, 
+           Background -> White, ImageSize -> Large]; 
+        Grid[{{$CellContext`energyPlot$}, {
+            Style[
+             Row[{"Kronig-Penney Model: ", "a/\[ScriptL] = ", 
+               NumberForm[$CellContext`spacing$$/$CellContext`ell$, {3, 2}], 
+               "   Interaction = ", 
+               NumberForm[$CellContext`interaction$, {4, 3}], 
+               "   Splitting = ", 
+               NumberForm[
+               Max[$CellContext`energyLevels$] - 
+                Min[$CellContext`energyLevels$], {4, 3}]}], 14, Bold]}, {
+            Style[
+             Row[{"E = E\:2080 + 4E\:2080e^(-a/\[ScriptL])cos(ka)   ", 
+               
+               If[$CellContext`spacing$$ > 2 $CellContext`ell$, 
+                "Weak interaction: levels nearly degenerate", 
+                "Strong interaction: degeneracy fully lifted"]}], 12]}}, 
+          Alignment -> Center, Spacings -> {0, 1}]], 
+      "Specifications" :> {{{$CellContext`spacing$$, 1.5, 
+          "Lattice spacing (a)"}, 0.3, 8., 0.05, Appearance -> "Labeled"}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{
+      668.58359375, {249.67902632649742`, 255.41095992024742`}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.958136926557534*^9, 3.9581369990680847`*^9, 3.958138273278812*^9, 
+   3.958138445281723*^9, {3.9581384899226503`*^9, 3.958138507289999*^9}, 
+   3.958138845158943*^9, 3.958139010040303*^9, 3.958139116771072*^9},
+ CellLabel->"Out[9]=",ExpressionUUID->"2224e2d6-cbff-4830-829c-d081102b68d9"]
+}, Open  ]],
+
+Cell["\<\
+\|01f39b\:fe0f Controls
+
+\:27a1\:fe0f Move slider right: Atoms isolated \[RightArrow] degenerate \
+levels
+\:2b05\:fe0f Move slider left: Strong interaction \[RightArrow] band formation
+
+\|01f534 Red lines = energy levels | \|01f4e6 Gray boxes = atom positions\
+\>", "Text",
+ CellChangeTimes->{
+  3.958143173521443*^9},ExpressionUUID->"bd893aad-ad71-42e5-8c25-\
+7c740a0cd9f6"]
+}, Open  ]]
+},
+WindowSize->{858, 937},
+WindowMargins->{{Automatic, 0}, {Automatic, 0}},
+FrontEndVersion->"14.2 for Mac OS X ARM (64-bit) (March 16, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"fa050909-ea05-470f-aea8-7ec0f3046fc1"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 250, 4, 96, "Title",ExpressionUUID->"10fabda7-b837-4b0b-9a8a-0faf6baa3300"],
+Cell[829, 28, 163, 3, 30, "Author",ExpressionUUID->"d8373b6b-19a9-4f0f-a488-d9f568bf79a5"],
+Cell[995, 33, 163, 3, 30, "Affiliation",ExpressionUUID->"662a0058-fc02-42a3-aea8-4a1e8ca2ea6a"],
+Cell[1161, 38, 5409, 97, 986, "Text",ExpressionUUID->"c4075785-2f88-47ae-92ee-96cd0163b120"],
+Cell[6573, 137, 176, 2, 29, "Input",ExpressionUUID->"69dd8307-5b92-468d-b6d2-db7a50f9820f"],
+Cell[CellGroupData[{
+Cell[6774, 143, 13345, 314, 1622, "Input",ExpressionUUID->"e6b4f818-c3be-447b-bf52-409fceb175b8"],
+Cell[20122, 459, 5098, 101, 522, "Output",ExpressionUUID->"2224e2d6-cbff-4830-829c-d081102b68d9"]
+}, Open  ]],
+Cell[25235, 563, 385, 11, 160, "Text",ExpressionUUID->"bd893aad-ad71-42e5-8c25-7c740a0cd9f6"]
+}, Open  ]]
+}
+]
+*)
+

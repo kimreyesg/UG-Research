@@ -12,7 +12,7 @@ This is your go-to resource for exploring the world of materials science, starti
 
 ### 1. Foundational Concepts 📚
 
-*The band structure is fixed by the crystal, but the electronic properties depend on how electrons fill it*
+*The band structure is fixed by the crystal, but the electronic properties depend on how electrons fill it.*
 
 - **Bloch's Theorem 🌊**:
   - Explains why electrons in periodic crystals form wavefunctions with a plane-wave component modulated by a periodic function.

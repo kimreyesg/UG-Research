@@ -36,7 +36,7 @@ The band structure is fixed by the crystal, but the electronic properties depend
   -  Additionally, observe the effects of increasing the potential.
  
 - **The Nearly-Free Electron Model 🫧**:
-- Explain the Nearly-Free Electron Model and its application of the degenerate perturbation model.
-- Explain why the Fourier transform is important in this context.
-- Demonstrate how inner products are used in the process, ultimately leading to a nice quantum mechanics problem.
-- How can we eliminate degeneracy in the band edge of a free electron model that has been slightly perturbed?
+  - Explain the Nearly-Free Electron Model and its application of the degenerate perturbation model.
+  - Explain why the Fourier transform is important in this context.
+  - Demonstrate how inner products are used in the process, ultimately leading to a nice quantum mechanics problem.
+  - How can we eliminate degeneracy in the band edge of a free electron model that has been slightly perturbed?

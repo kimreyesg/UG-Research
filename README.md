@@ -25,6 +25,10 @@ This is your go-to resource for exploring the world of materials science, starti
   - The notebook also illustrates the relationship between crystal momentum and electron energy.
   - Manipulating the plot will also demonstrate how bands and band gaps are formed and what happens when the potential is increased.
 
+ - **The Kronig-Penney Model (Attractive) 🎯**:
+  - This simulation demonstrates why energy bands form and how degeneracy is lifted as we modify the a/ℓ ratio.
+  - Key for introducing the Tight Binding Model.
+    
 - **Electrons Interacting with a Periodic Potential🫆**:
   - Band formation: You see how energy bands emerge from free electron states when a periodic potential is added.
   - Band gaps: The model shows how energy gaps naturally appear at the edges of the Brillouin zone due to Bragg scattering.

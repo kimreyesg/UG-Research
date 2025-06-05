@@ -18,7 +18,7 @@ This is your go-to resource for exploring the world of materials science, starti
   - Explains why electrons in periodic crystals form wavefunctions with a plane-wave component modulated by a periodic function.
   - Includes notes and an interactive notebook.
  
-- **The Kronig-Penney Model ⚙️**:
+- **The Kronig-Penney Model  (Repulsive) ⚙️**:
   - The Kronig-Penney model is a one-dimensional model of a crystal formed by an infinite arrangement of delta function potentials (here, the repulsive case).
   - This model does not produce bound states; therefore is not appropriate for illustrating atomic-like systems.
   - In the provided Mathematica notebook, you’ll find a solution to this problem, which is a typical quantum mechanics problem.

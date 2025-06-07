@@ -28,6 +28,8 @@ This is your go-to resource for exploring the world of materials science, starti
  - **The Kronig-Penney Model (Attractive) 🎯**:
     - This simulation demonstrates why energy bands form and how degeneracy is lifted as we modify the a/ℓ ratio.
     - Key for introducing the Tight Binding Model.
+    - In the attractive case, the degeneracy of the single well's bound state is lifted as the wells are brought closer, and a band forms.
+    - In the repulsive case, the band structure is the result of scattering interference and the crystal’s periodicity, not from splitting a degenerate level, but from allowing certain energies due to constructive interference (Bloch's theorem).
     
 - **Electrons Interacting with a Periodic Potential🫆**:
   - Band formation: You see how energy bands emerge from free electron states when a periodic potential is added.

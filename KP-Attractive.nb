@@ -1,0 +1,361 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     15442,        353]
+NotebookOptionsPosition[     14641,        331]
+NotebookOutlinePosition[     15039,        347]
+CellTagsIndexPosition[     14996,        344]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Kronig-Penney Model, attractive", "Title",
+ CellChangeTimes->{{3.9584640210857067`*^9, 
+  3.9584640451427097`*^9}},ExpressionUUID->"61ed6156-e11e-4eef-9e7f-\
+eb63054bcc6c"],
+
+Cell["\<\
+| Aspect            \t           | Repulsive KP                        | \
+Attractive KP                               |
+| ------------------------- | ----------------------------------- | \
+------------------------------------------- |
+| Electron type            | Scattering state                    | Bound \
+state (localized)                     |
+| Band formatio         | From quantum interference           | From lifting \
+degeneracy via overlap         |
+| Wavefunction          | Delocalized, periodic Bloch wave    | Periodic but \
+built from localized states    |
+| Interaction               | With **potential**, single-particle | Between \
+**wavefunctions** (site overlap)    |
+| Number of original states | Infinite continuum                  | One per \
+well (can be more in richer models) |
+
+
+\
+\>", "Text",
+ CellChangeTimes->{{3.958464063998027*^9, 3.958464201401718*^9}, {
+  3.9584647087523117`*^9, 
+  3.9584647381830072`*^9}},ExpressionUUID->"ffbed8ae-eb79-498f-8bce-\
+d593c5820417"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "f", ",", "\[Alpha]list", ",", "fvals", ",", "bands", ",", 
+       "bandRects"}], "}"}], ",", "\[IndentingNewLine]", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"f", "[", "\[Alpha]_", "]"}], ":=", 
+       RowBox[{
+        RowBox[{"Cosh", "[", "\[Alpha]", "]"}], "-", 
+        RowBox[{"Pa", "*", 
+         RowBox[{
+          RowBox[{"Sinh", "[", "\[Alpha]", "]"}], "/", "\[Alpha]"}]}]}]}], ";",
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"\[Alpha]list", "=", 
+       RowBox[{"Range", "[", 
+        RowBox[{"0.1", ",", 
+         RowBox[{"8", " ", "Pi"}], ",", "0.01"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"fvals", "=", 
+       RowBox[{"f", "/@", "\[Alpha]list"}]}], ";", "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", 
+      RowBox[{"bands", "=", 
+       RowBox[{"Select", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"SplitBy", "[", 
+          RowBox[{
+           RowBox[{"Transpose", "[", 
+            RowBox[{"{", 
+             RowBox[{"\[Alpha]list", ",", "fvals"}], "}"}], "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", "1"}], "<=", 
+              RowBox[{"#", "[", 
+               RowBox[{"[", "2", "]"}], "]"}], "<=", "1"}], ")"}], "&"}]}], 
+          "]"}], ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"AllTrue", "[", 
+           RowBox[{"#", ",", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"-", "1"}], "<=", 
+               RowBox[{"#", "[", 
+                RowBox[{"[", "2", "]"}], "]"}], "<=", "1"}], ")"}], "&"}]}], 
+           "]"}], "&"}]}], "\[IndentingNewLine]", "]"}]}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"bandRects", "=", 
+       RowBox[{"Table", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"With", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"amin", "=", 
+              RowBox[{
+               RowBox[{"First", "[", "band", "]"}], "[", 
+               RowBox[{"[", "1", "]"}], "]"}]}], ",", 
+             RowBox[{"amax", "=", 
+              RowBox[{
+               RowBox[{"Last", "[", "band", "]"}], "[", 
+               RowBox[{"[", "1", "]"}], "]"}]}]}], "}"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"{", 
+            RowBox[{"Red", ",", 
+             RowBox[{"Opacity", "[", "0.2", "]"}], ",", 
+             RowBox[{"Rectangle", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"amin", ",", 
+                 RowBox[{"-", "1"}]}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"amax", ",", "1"}], "}"}]}], "]"}]}], "}"}]}], 
+          "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"{", 
+          RowBox[{"band", ",", "bands"}], "}"}]}], "\[IndentingNewLine]", 
+        "]"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"Plot", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"f", "[", "\[Alpha]", "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\[Alpha]", ",", "0.1", ",", 
+          RowBox[{"8", " ", "Pi"}]}], "}"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"PlotStyle", "->", 
+         RowBox[{"{", 
+          RowBox[{"Black", ",", "Thick"}], "}"}]}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"PlotRange", "->", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", 
+             RowBox[{"6", " ", "Pi"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "2"}], ",", "2"}], "}"}]}], "}"}]}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"AxesLabel", "->", 
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\<\[Alpha]\>\"", ",", "14", ",", "Bold"}], "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\<f(\[Alpha])\>\"", ",", "14", ",", "Bold"}], "]"}]}], 
+          "}"}]}], ",", "\[IndentingNewLine]", 
+        RowBox[{"Ticks", "->", 
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"n", " ", "Pi"}], ",", 
+               RowBox[{"Row", "[", 
+                RowBox[{"{", 
+                 RowBox[{"n", ",", "\"\<\[Pi]\>\""}], "}"}], "]"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"n", ",", "1", ",", "8"}], "}"}]}], "]"}], ",", 
+           "\[IndentingNewLine]", "Automatic"}], "}"}]}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"GridLines", "->", 
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"n", " ", "Pi"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"n", ",", "1", ",", "8"}], "}"}]}], "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "\[IndentingNewLine]", 
+          "}"}]}], ",", "\[IndentingNewLine]", 
+        RowBox[{"GridLinesStyle", "->", 
+         RowBox[{"Directive", "[", 
+          RowBox[{"Gray", ",", "Dashed"}], "]"}]}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"PlotPoints", "->", "300"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"Epilog", "->", "bandRects"}]}], "\[IndentingNewLine]", 
+       "]"}]}]}], "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"Pa", ",", "2"}], "}"}], ",", "0.1", ",", "20", ",", 
+     RowBox[{"Appearance", "->", "\"\<Labeled\>\""}]}], "}"}]}], 
+  "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.958311409246644*^9, 3.958311426963318*^9}},
+ CellLabel->"In[15]:=",ExpressionUUID->"3e24eb3e-71e5-4a71-ad2e-f40312779e8a"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`Pa$$ = 1.82, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`Pa$$], 2}, 0.1, 20, ControlType -> Manipulator}}, 
+    Typeset`size$$ = {360., {112.25516559906579`, 117.98709919281579`}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True, 
+    Typeset`keyframeActionsQ$$ = False, Typeset`keyframeList$$ = {}}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`Pa$$ = 2}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$, Typeset`keyframeActionsQ$$, 
+        Typeset`keyframeList$$}, "Body" :> 
+      Module[{$CellContext`f$, $CellContext`\[Alpha]list$, \
+$CellContext`fvals$, $CellContext`bands$, $CellContext`bandRects$}, \
+$CellContext`f$[
+           Pattern[$CellContext`\[Alpha]$, 
+            Blank[]]] := 
+         Cosh[$CellContext`\[Alpha]$] - $CellContext`Pa$$ (
+           Sinh[$CellContext`\[Alpha]$]/$CellContext`\[Alpha]$); \
+$CellContext`\[Alpha]list$ = Range[0.1, 8 Pi, 0.01]; $CellContext`fvals$ = 
+         Map[$CellContext`f$, $CellContext`\[Alpha]list$]; \
+$CellContext`bands$ = Select[
+           SplitBy[
+            Transpose[{$CellContext`\[Alpha]list$, $CellContext`fvals$}], -1 <= 
+            Part[#, 2] <= 1& ], 
+           AllTrue[#, -1 <= Part[#, 2] <= 1& ]& ]; $CellContext`bandRects$ = 
+         Table[
+           With[{$CellContext`amin = Part[
+               First[$CellContext`band], 1], $CellContext`amax = Part[
+               Last[$CellContext`band], 1]}, {Red, 
+             Opacity[0.2], 
+             
+             Rectangle[{$CellContext`amin, -1}, {$CellContext`amax, 
+               1}]}], {$CellContext`band, $CellContext`bands$}]; Plot[
+          $CellContext`f$[$CellContext`\[Alpha]], {$CellContext`\[Alpha], 0.1,
+            8 Pi}, PlotStyle -> {Black, Thick}, 
+          PlotRange -> {{0, 6 Pi}, {-2, 2}}, AxesLabel -> {
+            Style["\[Alpha]", 14, Bold], 
+            Style["f(\[Alpha])", 14, Bold]}, Ticks -> {
+            Table[{$CellContext`n Pi, 
+              Row[{$CellContext`n, "\[Pi]"}]}, {$CellContext`n, 1, 8}], 
+            Automatic}, GridLines -> {
+            Table[$CellContext`n Pi, {$CellContext`n, 1, 8}], {-1, 1}}, 
+          GridLinesStyle -> Directive[Gray, Dashed], PlotPoints -> 300, 
+          Epilog -> $CellContext`bandRects$]], 
+      "Specifications" :> {{{$CellContext`Pa$$, 2}, 0.1, 20, Appearance -> 
+         "Labeled"}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{409.1, {159.92559101410484`, 165.65752460785484`}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.95831152334407*^9},
+ CellLabel->"Out[15]=",ExpressionUUID->"d59c10c9-b70f-4752-9e6f-5d3eccd79e2e"]
+}, Open  ]],
+
+Cell[TextData[{
+ "\:269b\:fe0f 1. Repulsive Kronig\[Dash]Penney Model\nThe delta barriers \
+represent periodic scattering centers.\n\nThe electrons are not localized \
+\[LongDash] they are free in between and just scatter at the barriers.\n\n\
+These are scattering states, meaning the wavefunctions extend across the \
+crystal.\n\nBand structure arises due to constructive and destructive \
+interference (Bragg reflection) of these extended states.\n\n Wavefunction:\n\
+A Bloch wave: is periodic with the lattice.\n\nIt\[CloseCurlyQuote]s \
+delocalized but modulated by the periodic potential.\n\n What does \
+\[OpenCurlyDoubleQuote]interaction\[CloseCurlyDoubleQuote] mean here?\nNot \
+electron\[Dash]electron interaction, but interaction of an electron wave with \
+the lattice (ions).\n\nInterference happens within a single electron\
+\[CloseCurlyQuote]s wavefunction due to periodic scattering.\n\n\:269b\:fe0f \
+2. Attractive Kronig\[Dash]Penney Model\nEach delta well binds an electron \
+locally with an energy level \n\nWhen wells are isolated, each site has one \
+localized state.\n\nWhen brought into a periodic array (crystal), the overlap \
+of localized wavefunctions causes energy level splitting \[RightArrow] forms \
+a band.\n\n Wavefunction:\nStill a Bloch wave, but formed from linear \
+combinations of localized bound states.\n\nLooks like a delocalized chain of \
+localized blobs \[LongDash] probability density is concentrated around each \
+well but still forms a periodic extended wave.\n\nInteraction here:\nThis is \
+like in tight-binding models: interaction = overlap of wavefunctions on \
+neighboring sites.\n\nDegenerate levels become non-degenerate, forming bands.\
+\n\n The Pauli exclusion principle applies in the Nearly-Free Electron Model \
+(NFEM) and repulsive Kronig\[Dash]Penney Model (KPM), even though the \
+wavefunctions are extended (delocalized) (just in case you wonder about it).\n\
+ \n \|01f9e0 Two sides of the same coin:\n",
+ StyleBox["Repulsive KP model / NFEM:",
+  FontWeight->"Bold"],
+ "\n\nEmphasizes wave-like behavior\n\nBands emerge from interference and \
+Bragg reflection\n\nElectrons feel a weak periodic \
+\[OpenCurlyDoubleQuote]ripple\[CloseCurlyDoubleQuote] \[LongDash] they are \
+extended states bouncing off small barriers\n\n",
+ StyleBox["Attractive KP model / tight-binding:",
+  FontWeight->"Bold"],
+ "\n\nEmphasizes particle-like localization\n\nBands emerge from tunneling \
+between bound states\n\nElectrons are originally trapped in wells and only \
+spread due to overlap\n\n",
+ StyleBox["Yet in both",
+  FontWeight->"Bold"],
+ ":\n\n\:2705 You\[CloseCurlyQuote]re solving Schr\[ODoubleDot]dinger\
+\[CloseCurlyQuote]s equation\n\:2705 You get Bloch waves\n\:2705 You fill \
+states according to the Pauli principle\n\:2705 You build a band structure"
+}], "Text",
+ CellChangeTimes->{{3.958464667765497*^9, 3.95846470190828*^9}, {
+  3.9584696882803*^9, 3.9584697112852697`*^9}, {3.9584697538567038`*^9, 
+  3.958469754435766*^9}, {3.9584697932761183`*^9, 
+  3.9584698122655487`*^9}},ExpressionUUID->"310f75c2-aa37-4df5-a773-\
+85fec3352f32"]
+}, Open  ]]
+},
+WindowSize->{1166, 911},
+WindowMargins->{{Automatic, -1780}, {Automatic, 34}},
+FrontEndVersion->"14.2 for Mac OS X ARM (64-bit) (March 16, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"0159eaf3-e1d6-4304-b4d5-fcb3b146add3"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 178, 3, 96, "Title",ExpressionUUID->"61ed6156-e11e-4eef-9e7f-eb63054bcc6c"],
+Cell[757, 27, 1013, 22, 230, "Text",ExpressionUUID->"ffbed8ae-eb79-498f-8bce-d593c5820417"],
+Cell[CellGroupData[{
+Cell[1795, 53, 6206, 155, 866, "Input",ExpressionUUID->"3e24eb3e-71e5-4a71-ad2e-f40312779e8a"],
+Cell[8004, 210, 3508, 67, 342, "Output",ExpressionUUID->"d59c10c9-b70f-4752-9e6f-5d3eccd79e2e"]
+}, Open  ]],
+Cell[11527, 280, 3098, 48, 1379, "Text",ExpressionUUID->"310f75c2-aa37-4df5-a773-85fec3352f32"]
+}, Open  ]]
+}
+]
+*)
+

@@ -30,6 +30,7 @@ This is your go-to resource for exploring the world of materials science, starti
     - Key for introducing the Tight Binding Model.
     - In the attractive case, the degeneracy of the single well's bound state is lifted as the wells are brought closer, and a band forms.
     - In the repulsive case, the band structure is the result of scattering interference and the crystal’s periodicity, not from splitting a degenerate level, but from allowing certain energies due to constructive interference (Bloch's theorem).
+    - In this topic, you will find two notebooks. The KP-attractive have a few additional comments to complement our study.
     
 - **Electrons Interacting with a Periodic Potential🫆**:
   - Band formation: You see how energy bands emerge from free electron states when a periodic potential is added.

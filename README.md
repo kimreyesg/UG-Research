@@ -49,8 +49,8 @@ This is your go-to resource for exploring the world of materials science, starti
   - Demonstrate how inner products are used in the process, ultimately leading to a nice quantum mechanics problem.
   - How can we eliminate degeneracy in the band edge of a free electron model that has been slightly perturbed?
 
-
-
+- **The Real and Reciprocal Space 🧊**:
+  - This notebook help you to understand the relation between the real and reciprocal space and why is important for DFT calculations.
 
 
 📚*Cohen, M. L., & Louie, S. G. (2016). Fundamentals of condensed matter physics. Cambridge University Press.*

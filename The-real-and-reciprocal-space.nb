@@ -1,0 +1,971 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     41341,        963]
+NotebookOptionsPosition[     38436,        904]
+NotebookOutlinePosition[     39430,        932]
+CellTagsIndexPosition[     39350,        927]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["The real and reciprocal space", "Title",
+ CellChangeTimes->{{3.958559548479515*^9, 
+  3.958559556873938*^9}},ExpressionUUID->"1ecbed2a-fc34-41e7-a618-\
+cf5a0cdeb4e2"],
+
+Cell["Greis J Kim Reyes", "Author",
+ CellChangeTimes->{{3.958559566612919*^9, 
+  3.9585595740482683`*^9}},ExpressionUUID->"6eaba1a0-4d1d-4d79-92b6-\
+7da6b1f77582"],
+
+Cell["\<\
+Department of Physics and Astronomy Department
+SUNY New Paltz\
+\>", "Affiliation",
+ CellChangeTimes->{{3.958559587872406*^9, 
+  3.958559606556679*^9}},ExpressionUUID->"3981fac9-f504-48a1-b7aa-\
+20726c277a54"],
+
+Cell[TextData[{
+ "Conditions of periodicity (1D)\n\n",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{"\[CapitalPsi]", 
+         RowBox[{"(", 
+           StyleBox["x", "TI"], ")"}], "\[LongEqual]", "\[CapitalPsi]", 
+         RowBox[{"(", 
+           RowBox[{
+             StyleBox["x", "TI"], "+", 
+             StyleBox["N", "TI"], 
+             StyleBox["a", "TI"]}], ")"}]}], TraditionalForm], "errors" -> {},
+      "input" -> "\\Psi(x)=\\Psi(x+Na)", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "fbc6b84b-f098-46c6-9744-9d770f0dd5ea"],
+ "\n\nand the Bloch\[CloseCurlyQuote]s Theorem:\n\n",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{"\[CapitalPsi]", 
+         RowBox[{"(", 
+           RowBox[{
+             StyleBox["x", "TI"], "+", 
+             StyleBox["N", "TI"], 
+             StyleBox["a", "TI"]}], ")"}], "\[LongEqual]", 
+         SuperscriptBox[
+          StyleBox["e", "TI"], 
+          RowBox[{
+            StyleBox["i", "TI"], 
+            StyleBox["k", "TI"], 
+            StyleBox["N", "TI"], 
+            StyleBox["a", "TI"]}]], "\[CapitalPsi]", 
+         RowBox[{"(", 
+           StyleBox["x", "TI"], ")"}]}], TraditionalForm], "errors" -> {}, 
+     "input" -> "\\Psi(x+Na)=e^{ikNa}\\Psi(x)", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "0cfb5069-d383-4872-811e-69f3f5fd26fa"],
+ "\n\nconstraint the k number to:\n\n",
+ Cell[BoxData[
+  FormBox[
+   TemplateBox[<|"boxes" -> FormBox[
+       RowBox[{
+         SuperscriptBox[
+          StyleBox["e", "TI"], 
+          RowBox[{
+            StyleBox["i", "TI"], 
+            StyleBox["k", "TI"], 
+            StyleBox["N", "TI"], 
+            StyleBox["a", "TI"]}]], "\[LongEqual]", "1"}], TraditionalForm], 
+     "errors" -> {}, "input" -> "e^{ikNa}=1", "state" -> "Boxes"|>,
+    "TeXAssistantTemplate"], TraditionalForm]],ExpressionUUID->
+  "98ec2de8-ef19-4f5f-9e3c-5e3501ecee48"]
+}], "Text",
+ CellChangeTimes->{{3.958559663939217*^9, 
+  3.9585597980497313`*^9}},ExpressionUUID->"4e7b3b3a-a990-46e4-aec3-\
+44414d22654b"],
+
+Cell[BoxData[{
+ RowBox[{
+  TemplateBox[<|"boxes" -> FormBox[
+      RowBox[{
+        StyleBox["k", "TI"], 
+        StyleBox["N", "TI"], 
+        StyleBox["a", "TI"], "\[LongEqual]", "0", ",", "\[PlusMinus]", "2", 
+        "\[Pi]", ",", ",", "\[PlusMinus]", "4", "\[Pi]", "..."}], 
+      TraditionalForm], "errors" -> {}, "input" -> 
+    "kNa=0,\\pm2\\pi,,\\pm4\\pi...", "state" -> "Boxes"|>,
+   "TeXAssistantTemplate"], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{
+   RowBox[{"The", " ", "total", " ", "number", " ", "of", 
+    FormBox[
+     TemplateBox[<|"boxes" -> FormBox[
+         StyleBox["k", "TI"], TraditionalForm], "errors" -> {}, "input" -> 
+       "k", "state" -> "Boxes"|>,
+      "TeXAssistantTemplate"],
+     TraditionalForm]}], "-", 
+   RowBox[{
+   "states", " ", "is", " ", "indeed", " ", "equal", " ", "to", " ", "the", " ",
+     "number", " ", "of", " ", "unit", " ", "cells", 
+    FormBox[
+     TemplateBox[<|"boxes" -> FormBox[
+         StyleBox["N", "TI"], TraditionalForm], "errors" -> {}, "input" -> 
+       "N", "state" -> "Boxes"|>,
+      "TeXAssistantTemplate"],
+     TraditionalForm], "which", " ", "corresponds", " ", "to", " ", "the", " ",
+     "number", " ", "of", " ", "different", " ", "ways", " ", "particles", " ",
+     "can", " ", "exist", " ", "in", " ", "the", " ", 
+    RowBox[{"system", "'"}], "s", " ", "reciprocal", " ", 
+    RowBox[{"space", ".", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{"-", "For"}]}], " ", "a", " ", "long", " ", "crystal", " ", "N", 
+    " ", "is", " ", "large", " ", "and", " ", "there", " ", "are", " ", 
+    "many", " ", "states", " ", "that", " ", "are", " ", "close", " ", 
+    "together", " ", "in", " ", "k"}], "-", 
+   RowBox[{"space", "."}]}],
+  FontFamily->"Al Tarikh",
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  FontColor->RGBColor[0., 0., 0.]]}], "Text",
+ CellChangeTimes->{
+  3.958559767179039*^9, 3.958559806167165*^9, 3.958559876140452*^9, {
+   3.958560012849915*^9, 3.9585600506565866`*^9}, {3.9585601314869223`*^9, 
+   3.958560148313366*^9}, {3.958572928544586*^9, 
+   3.958572932289113*^9}},ExpressionUUID->"271b5c53-4613-487e-abda-\
+d652de2a1298"],
+
+Cell[TextData[{
+ "This concepts are relevant when you are doing DFT calculations, in DFT, the \
+electronic wavefunctions are represented in reciprocal (k) space because we \
+assume periodic boundary conditions and expand wavefunctions using plane \
+waves.\n\nSuppose you\[CloseCurlyQuote]re studying a 2D material like \
+graphene or a slab of a 3D material.\n\n- In-plane directions (x and y):\n\
+These directions are truly periodic.\n\nYou need a dense k-point mesh in \
+these directions.\n\nFor example, a Monkhorst-Pack grid like 15\[Times]15\
+\[Times]1 might be used.\n\nThis ensures accurate sampling of the Brillouin \
+zone in the plane.\n\n- Out-of-plane direction (z):\nYou add vacuum to \
+simulate isolation \[LongDash] this breaks periodicity physically, but \
+computationally the box is still treated as periodic.\n\nBecause the \
+wavefunctions in the vacuum are flat (little or no electron density), you don\
+\[CloseCurlyQuote]t need many k-points along z \[LongDash] even 1 is often \
+sufficient.\n\nThe system is effectively non-periodic in z.\n\n",
+ StyleBox["Two Views: Real-space supercell vs. k-point grid",
+  FontWeight->"Bold"],
+ "\n\n1. Small real cell + Dense k-point mesh\nUse a single unit cell\n\n\
+Compensate by sampling the Brillouin zone densely with many k-points\n\nThis \
+gives good resolution in reciprocal space\n\n2. Large supercell + Fewer \
+k-points\nIncrease the number of real-space unit cells (make a supercell)\n\n\
+Now the Brillouin zone shrinks, so you need fewer k-points\n\nIn the limit of \
+a huge supercell, you can even use only the \[CapitalGamma]-point\n\n\:2705  \
+Key point: There is a tradeoff between real-space cell size and number of \
+k-points.\nThe product :\n\|01d441cells\[Times]\|01d441k-points \n\nshould be \
+large enough to represent the system well"
+}], "Text",
+ CellChangeTimes->{{3.958572340814584*^9, 3.958572353359371*^9}, {
+   3.958572801554695*^9, 3.958572846124138*^9}, 
+   3.9585729495580683`*^9},ExpressionUUID->"d56128a9-6c7d-4880-b6b8-\
+a0754b281d45"],
+
+Cell[TextData[{
+ StyleBox["When you\[CloseCurlyQuote]re simulating a defect in a material ",
+  FontWeight->"Bold"],
+ "(e.g., a vacancy, interstitial, impurity, etc.), you\[CloseCurlyQuote]re \
+breaking the perfect periodicity of the crystal.\n\nWhy not use the normal \
+unit cell?\n\nDefects are localized disruptions.\n\nIn a small cell, the \
+defect interacts with its periodic images, which is unphysical.\n\nA \
+supercell makes the defect more \[OpenCurlyDoubleQuote]isolated\
+\[CloseCurlyDoubleQuote] \[LongDash] reducing artificial interactions.\n\n\
+Supercells \[OpenCurlyDoubleQuote]fold\[CloseCurlyDoubleQuote] the band \
+structure."
+}], "Text",
+ CellChangeTimes->{{3.9585731432112494`*^9, 3.958573155852779*^9}, {
+  3.9585731915882683`*^9, 
+  3.958573193467701*^9}},ExpressionUUID->"293c1590-919f-4840-ba67-\
+154d616e5400"],
+
+Cell[CellGroupData[{
+
+Cell["1D sample", "Section",
+ CellChangeTimes->{{3.9585723667299013`*^9, 
+  3.958572369779929*^9}},ExpressionUUID->"c527a792-16e3-4dcd-b1cb-\
+a5018bebecac"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", "  ", 
+  RowBox[{
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"realLattice", ",", "reciprocalLattice", ",", "kMin"}], "}"}], ",",
+      "\[IndentingNewLine]", "    ", 
+     RowBox[{
+      RowBox[{"realLattice", "=", 
+       RowBox[{"Range", "[", 
+        RowBox[{"0", ",", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"n", "-", "1"}], ")"}], " ", "a"}], ",", "a"}], "]"}]}], ";",
+       "\[IndentingNewLine]", "    ", 
+      RowBox[{"kMin", "=", 
+       RowBox[{"2", " ", 
+        RowBox[{"\[Pi]", "/", 
+         RowBox[{"(", 
+          RowBox[{"a", " ", "n"}], ")"}]}]}]}], ";", "\[IndentingNewLine]", 
+      "    ", 
+      RowBox[{"reciprocalLattice", "=", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"kMin", " ", "k"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"k", ",", "0", ",", 
+           RowBox[{"n", "-", "1"}]}], "}"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", "    ", 
+      RowBox[{"Grid", "[", 
+       RowBox[{"{", "\[IndentingNewLine]", "      ", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Graphics", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"PointSize", "[", "Large", "]"}], ",", 
+              RowBox[{"Point", "[", 
+               RowBox[{"Transpose", "[", 
+                RowBox[{"{", 
+                 RowBox[{"realLattice", ",", 
+                  RowBox[{"ConstantArray", "[", 
+                   RowBox[{"0", ",", 
+                    RowBox[{"Length", "@", "realLattice"}]}], "]"}]}], "}"}], 
+                "]"}], "]"}]}], "}"}], ",", "\[IndentingNewLine]", "        ", 
+            RowBox[{"Frame", "->", "True"}], ",", 
+            RowBox[{"PlotRange", "->", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"-", "1"}], ",", 
+                 RowBox[{"n", " ", "a"}]}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "}"}]}], ",", 
+            RowBox[{"AspectRatio", "->", 
+             RowBox[{"1", "/", "5"}]}], ",", "\[IndentingNewLine]", 
+            "        ", 
+            RowBox[{"PlotLabel", "->", "\"\<1D Real Space Lattice\>\""}]}], 
+           "]"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          "       ", 
+          RowBox[{"Graphics", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"PointSize", "[", "Large", "]"}], ",", 
+              RowBox[{"Point", "[", 
+               RowBox[{"Transpose", "[", 
+                RowBox[{"{", 
+                 RowBox[{"reciprocalLattice", ",", 
+                  RowBox[{"ConstantArray", "[", 
+                   RowBox[{"0", ",", 
+                    RowBox[{"Length", "@", "reciprocalLattice"}]}], "]"}]}], 
+                 "}"}], "]"}], "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+            "        ", 
+            RowBox[{"Frame", "->", "True"}], ",", 
+            RowBox[{"PlotRange", "->", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"-", "2"}], " ", 
+                  RowBox[{"\[Pi]", "/", "a"}]}], ",", 
+                 RowBox[{"2", " ", 
+                  RowBox[{"\[Pi]", "/", "a"}]}]}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "}"}]}], ",", 
+            RowBox[{"AspectRatio", "->", "1"}], ",", "\[IndentingNewLine]", 
+            "        ", 
+            RowBox[{"PlotRangePadding", "->", 
+             RowBox[{"Scaled", "[", "0.1", "]"}]}], ",", 
+            RowBox[{"PlotLabel", "->", "\"\<1D Reciprocal Lattice\>\""}]}], 
+           "]"}]}], "\[IndentingNewLine]", "      ", "}"}], 
+        "\[IndentingNewLine]", "    ", "}"}], "]"}]}]}], 
+    "\[IndentingNewLine]", "  ", "]"}], ",", "\[IndentingNewLine]", "  ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"a", ",", "1"}], "}"}], ",", "0.5", ",", "2", ",", "0.1"}], 
+    "}"}], ",", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Lattice", " ", "constant"}], " ", "*)"}], "\[IndentingNewLine]", 
+   "  ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"n", ",", "5"}], "}"}], ",", "1", ",", "10", ",", "1"}], 
+    "}"}]}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"Number", " ", "of", " ", "unit", " ", "cells"}], " ", "*)"}], 
+  "\[IndentingNewLine]", "]"}]], "Input",
+ CellTags->"ChatGeneratedCell",
+ CellLabel->"In[37]:=",ExpressionUUID->"17bc518b-94d2-4335-b02a-f0a668e36c5e"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`a$$ = 1.5, $CellContext`n$$ = 3, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`a$$], 1}, 0.5, 2, 0.1, ControlType -> Manipulator}, {{
+       Hold[$CellContext`n$$], 5}, 1, 10, 1, ControlType -> Manipulator}}, 
+    Typeset`size$$ = {
+    365.19999999999993`, {89.32109917534723, 95.05303276909723}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True, 
+    Typeset`keyframeActionsQ$$ = False, Typeset`keyframeList$$ = {}}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`a$$ = 1, $CellContext`n$$ = 5}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$, Typeset`keyframeActionsQ$$, 
+        Typeset`keyframeList$$}, "Body" :> 
+      Module[{$CellContext`realLattice$, $CellContext`reciprocalLattice$, \
+$CellContext`kMin$}, $CellContext`realLattice$ = 
+         Range[0, ($CellContext`n$$ - 
+            1) $CellContext`a$$, $CellContext`a$$]; $CellContext`kMin$ = 
+         2 (Pi/($CellContext`a$$ $CellContext`n$$)); \
+$CellContext`reciprocalLattice$ = 
+         Table[$CellContext`kMin$ $CellContext`k, {$CellContext`k, 
+            0, $CellContext`n$$ - 1}]; Grid[{{
+            Graphics[{
+              PointSize[Large], 
+              Point[
+               Transpose[{$CellContext`realLattice$, 
+                 ConstantArray[0, 
+                  Length[$CellContext`realLattice$]]}]]}, Frame -> True, 
+             PlotRange -> {{-1, $CellContext`n$$ $CellContext`a$$}, {-1, 1}}, 
+             AspectRatio -> 1/5, PlotLabel -> "1D Real Space Lattice"], 
+            Graphics[{
+              PointSize[Large], 
+              Point[
+               Transpose[{$CellContext`reciprocalLattice$, 
+                 ConstantArray[0, 
+                  Length[$CellContext`reciprocalLattice$]]}]]}, Frame -> True,
+              PlotRange -> {{(-2) (Pi/$CellContext`a$$), 
+                2 (Pi/$CellContext`a$$)}, {-1, 1}}, AspectRatio -> 1, 
+             PlotRangePadding -> Scaled[0.1], PlotLabel -> 
+             "1D Reciprocal Lattice"]}}]], 
+      "Specifications" :> {{{$CellContext`a$$, 1}, 0.5, 2, 
+         0.1}, {{$CellContext`n$$, 5}, 1, 10, 1}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{
+      414.29999999999995`, {151.7915245903863, 157.5234581841363}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.958552830219928*^9},
+ CellTags->"ChatGeneratedCell",
+ CellLabel->"Out[37]=",ExpressionUUID->"3b43366f-0314-4e73-876a-c2529a13c3ca"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["2 D sample", "Section",
+ CellChangeTimes->{{3.9585732227879763`*^9, 
+  3.95857322918716*^9}},ExpressionUUID->"688579a7-a305-46e6-a912-\
+797e53cac126"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", "  ", 
+  RowBox[{
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "realLattice", ",", "reciprocalLattice", ",", "kMinX", ",", "kMinY", ",",
+        "xPoints", ",", "yPoints"}], "}"}], ",", "\[IndentingNewLine]", 
+     "    ", 
+     RowBox[{"(*", " ", 
+      RowBox[{"Real", " ", "space", " ", "lattice", " ", "points"}], " ", 
+      "*)"}], "\[IndentingNewLine]", "    ", 
+     RowBox[{
+      RowBox[{"xPoints", "=", 
+       RowBox[{"Range", "[", 
+        RowBox[{"0", ",", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"n1", "-", "1"}], ")"}], " ", "a"}], ",", "a"}], "]"}]}], ";",
+       "\[IndentingNewLine]", "    ", 
+      RowBox[{"yPoints", "=", 
+       RowBox[{"Range", "[", 
+        RowBox[{"0", ",", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"n2", "-", "1"}], ")"}], " ", "a"}], ",", "a"}], "]"}]}], ";",
+       "\[IndentingNewLine]", "    ", 
+      RowBox[{"realLattice", "=", 
+       RowBox[{"Flatten", "[", 
+        RowBox[{
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"i", ",", "j"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"i", ",", "xPoints"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"j", ",", "yPoints"}], "}"}]}], "]"}], ",", "1"}], 
+        "]"}]}], ";", "\[IndentingNewLine]", "    ", "\[IndentingNewLine]", 
+      "    ", 
+      RowBox[{"(*", " ", 
+       RowBox[{"Reciprocal", " ", "space", " ", "lattice", " ", "points"}], 
+       " ", "*)"}], "\[IndentingNewLine]", "    ", 
+      RowBox[{"kMinX", "=", 
+       RowBox[{"2", " ", 
+        RowBox[{"\[Pi]", "/", 
+         RowBox[{"(", 
+          RowBox[{"a", " ", "n1"}], ")"}]}]}]}], ";", "\[IndentingNewLine]", 
+      "    ", 
+      RowBox[{"kMinY", "=", 
+       RowBox[{"2", " ", 
+        RowBox[{"\[Pi]", "/", 
+         RowBox[{"(", 
+          RowBox[{"a", " ", "n2"}], ")"}]}]}]}], ";", "\[IndentingNewLine]", 
+      "    ", 
+      RowBox[{"reciprocalLattice", "=", 
+       RowBox[{"Flatten", "[", 
+        RowBox[{
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"i", " ", "kMinX"}], ",", 
+             RowBox[{"j", " ", "kMinY"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"i", ",", 
+             RowBox[{
+              RowBox[{"-", "n1"}], "/", "2"}], ",", 
+             RowBox[{
+              RowBox[{"n1", "/", "2"}], "-", "1"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"j", ",", 
+             RowBox[{
+              RowBox[{"-", "n2"}], "/", "2"}], ",", 
+             RowBox[{
+              RowBox[{"n2", "/", "2"}], "-", "1"}]}], "}"}]}], "]"}], ",", 
+         "1"}], "]"}]}], ";", "\[IndentingNewLine]", "    ", 
+      "\[IndentingNewLine]", "    ", 
+      RowBox[{"Grid", "[", 
+       RowBox[{"{", "\[IndentingNewLine]", "      ", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Graphics", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"PointSize", "[", "Large", "]"}], ",", 
+              RowBox[{"Point", "[", "realLattice", "]"}]}], "}"}], ",", 
+            "\[IndentingNewLine]", "        ", 
+            RowBox[{"Frame", "->", "True"}], ",", 
+            RowBox[{"PlotRange", "->", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"-", "a"}], ",", 
+                 RowBox[{"n1", " ", "a"}]}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"-", "a"}], ",", 
+                 RowBox[{"n2", " ", "a"}]}], "}"}]}], "}"}]}], ",", 
+            RowBox[{"AspectRatio", "->", "1"}], ",", "\[IndentingNewLine]", 
+            "        ", 
+            RowBox[{"PlotLabel", "->", "\"\<2D Square Lattice\>\""}]}], "]"}],
+           ",", "\[IndentingNewLine]", "        ", "\[IndentingNewLine]", 
+          "       ", 
+          RowBox[{"Graphics", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"PointSize", "[", "Large", "]"}], ",", 
+              RowBox[{"Point", "[", "reciprocalLattice", "]"}]}], "}"}], ",", 
+            "\[IndentingNewLine]", "        ", 
+            RowBox[{"Frame", "->", "True"}], ",", 
+            RowBox[{"PlotRange", "->", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"-", "2"}], " ", 
+                  RowBox[{"\[Pi]", "/", "a"}]}], ",", 
+                 RowBox[{"2", " ", 
+                  RowBox[{"\[Pi]", "/", "a"}]}]}], "}"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"-", "2"}], " ", 
+                  RowBox[{"\[Pi]", "/", "a"}]}], ",", 
+                 RowBox[{"2", " ", 
+                  RowBox[{"\[Pi]", "/", "a"}]}]}], "}"}]}], "}"}]}], ",", 
+            RowBox[{"AspectRatio", "->", "1"}], ",", "\[IndentingNewLine]", 
+            "        ", 
+            RowBox[{"PlotRangePadding", "->", 
+             RowBox[{"Scaled", "[", "0.1", "]"}]}], ",", 
+            RowBox[{"PlotLabel", "->", "\"\<2D Reciprocal Lattice\>\""}]}], 
+           "]"}]}], "\[IndentingNewLine]", "      ", "}"}], 
+        "\[IndentingNewLine]", "    ", "}"}], "]"}]}]}], 
+    "\[IndentingNewLine]", "  ", "]"}], ",", "\[IndentingNewLine]", "  ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"a", ",", "1"}], "}"}], ",", "0.5", ",", "2", ",", "0.1"}], 
+    "}"}], ",", 
+   RowBox[{"(*", " ", 
+    RowBox[{"Lattice", " ", "constant"}], " ", "*)"}], "\[IndentingNewLine]", 
+   "  ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"n1", ",", "5"}], "}"}], ",", "1", ",", "10", ",", "1"}], "}"}],
+    ",", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"Number", " ", "of", " ", "cells", " ", "in", " ", "x"}], "-", 
+     "direction"}], " ", "*)"}], "\[IndentingNewLine]", "  ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"n2", ",", "5"}], "}"}], ",", "1", ",", "10", ",", "1"}], 
+    "}"}]}], "  ", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"Number", " ", "of", " ", "cells", " ", "in", " ", "y"}], "-", 
+    "direction"}], " ", "*)"}], "\[IndentingNewLine]", "]"}]], "Input",
+ CellTags->"ChatGeneratedCell",
+ CellLabel->"In[38]:=",ExpressionUUID->"8f940948-a3b1-4aaf-a481-9bfa82b58072"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`a$$ = 0.6, $CellContext`n1$$ = 
+    5, $CellContext`n2$$ = 2, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`a$$], 1}, 0.5, 2, 0.1, ControlType -> Manipulator}, {{
+       Hold[$CellContext`n1$$], 5}, 1, 10, 1, ControlType -> Manipulator}, {{
+       Hold[$CellContext`n2$$], 5}, 1, 10, 1, ControlType -> Manipulator}}, 
+    Typeset`size$$ = {
+    365.19999999999993`, {90.71025933159723, 96.44219292534723}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True, 
+    Typeset`keyframeActionsQ$$ = False, Typeset`keyframeList$$ = {}}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`a$$ = 1, $CellContext`n1$$ = 
+        5, $CellContext`n2$$ = 5}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$, Typeset`keyframeActionsQ$$, 
+        Typeset`keyframeList$$}, "Body" :> 
+      Module[{$CellContext`realLattice$, $CellContext`reciprocalLattice$, \
+$CellContext`kMinX$, $CellContext`kMinY$, $CellContext`xPoints$, \
+$CellContext`yPoints$}, $CellContext`xPoints$ = 
+         Range[0, ($CellContext`n1$$ - 
+            1) $CellContext`a$$, $CellContext`a$$]; $CellContext`yPoints$ = 
+         Range[0, ($CellContext`n2$$ - 
+            1) $CellContext`a$$, $CellContext`a$$]; $CellContext`realLattice$ = 
+         Flatten[
+           
+           Table[{$CellContext`i, $CellContext`j}, {$CellContext`i, \
+$CellContext`xPoints$}, {$CellContext`j, $CellContext`yPoints$}], 
+           1]; $CellContext`kMinX$ = 
+         2 (Pi/($CellContext`a$$ $CellContext`n1$$)); $CellContext`kMinY$ = 
+         2 (Pi/($CellContext`a$$ $CellContext`n2$$)); \
+$CellContext`reciprocalLattice$ = Flatten[
+           
+           Table[{$CellContext`i $CellContext`kMinX$, $CellContext`j \
+$CellContext`kMinY$}, {$CellContext`i, (-$CellContext`n1$$)/
+             2, $CellContext`n1$$/2 - 
+             1}, {$CellContext`j, (-$CellContext`n2$$)/2, $CellContext`n2$$/2 - 
+             1}], 1]; Grid[{{
+            Graphics[{
+              PointSize[Large], 
+              Point[$CellContext`realLattice$]}, Frame -> True, 
+             PlotRange -> {{-$CellContext`a$$, $CellContext`n1$$ \
+$CellContext`a$$}, {-$CellContext`a$$, $CellContext`n2$$ $CellContext`a$$}}, 
+             AspectRatio -> 1, PlotLabel -> "2D Square Lattice"], 
+            Graphics[{
+              PointSize[Large], 
+              Point[$CellContext`reciprocalLattice$]}, Frame -> True, 
+             PlotRange -> {{(-2) (Pi/$CellContext`a$$), 
+                2 (Pi/$CellContext`a$$)}, {(-2) (Pi/$CellContext`a$$), 
+                2 (Pi/$CellContext`a$$)}}, AspectRatio -> 1, PlotRangePadding -> 
+             Scaled[0.1], PlotLabel -> "2D Reciprocal Lattice"]}}]], 
+      "Specifications" :> {{{$CellContext`a$$, 1}, 0.5, 2, 
+         0.1}, {{$CellContext`n1$$, 5}, 1, 10, 1}, {{$CellContext`n2$$, 5}, 1,
+          10, 1}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{
+      414.29999999999995`, {167.98068474663629`, 173.71261834038629`}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.958552980940343*^9},
+ CellTags->"ChatGeneratedCell",
+ CellLabel->"Out[38]=",ExpressionUUID->"73538769-2fa7-47e5-ba53-f0f0d1004012"]
+}, Open  ]],
+
+Cell[BoxData["Quit"], "Input",
+ CellChangeTimes->{{3.9585674246762323`*^9, 3.958567426643359*^9}},
+ CellLabel->"In[42]:=",ExpressionUUID->"6a1274c6-55e7-4973-b87e-161bf47fe9ad"],
+
+Cell[TextData[{
+ "\n",
+ StyleBox["Gamma-Point Shifting\n",
+  FontWeight->"Bold"],
+ "\nIn DFT, we often use k-point grids (like Monkhorst-Pack grids) to sample \
+the Brillouin zone.\n\nThese grids can be:\n\n",
+ StyleBox["1. Gamma-centered",
+  FontWeight->"Bold"],
+ "\nIncludes the \[CapitalGamma]-point (k = 0, 0, 0)\n\nThe grid is centered \
+at the origin\n\nE.g., a 4\[Times]4\[Times]4 grid shifted by (0, 0, 0) \
+includes the \[CapitalGamma]-point\n\n",
+ StyleBox["2. Shifted (Monkhorst-Pack)",
+  FontWeight->"Bold"],
+ "\nThe grid is shifted slightly so it does not include \[CapitalGamma]\n\n\
+For example, 4\[Times]4\[Times]4 shifted by (1/2, 1/2, 1/2) avoids the zone \
+center\n\nThis shift is sometimes called a non-\[CapitalGamma]-centered grid \
+or uniform grid without \[CapitalGamma].\n\n",
+ StyleBox["Why Does This Matter?",
+  FontWeight->"Bold"],
+ "\nBecause including or excluding the \[CapitalGamma]-point changes which \
+k-points you sample, which can affect:\n\n",
+ StyleBox["1. Symmetry\n",
+  FontWeight->"Bold"],
+ "\n\[CapitalGamma]-centered grids preserve symmetries around k = 0\n\n\
+Shifted grids break that central symmetry, but give more uniform sampling\n\n",
+ StyleBox["2. Integration Accuracy\n",
+  FontWeight->"Bold"],
+ "\nShifted grids tend to give better numerical integration over the \
+Brillouin zone.\n\nThey avoid \[OpenCurlyDoubleQuote]overweighting\
+\[CloseCurlyDoubleQuote] the \[CapitalGamma]-point (which is special and has \
+higher symmetry).\n\n",
+ StyleBox["3. Type of System\n",
+  FontWeight->"Bold"],
+ "\nFor metals, shifted grids are usually better because you need to \
+carefully sample the Fermi surface.\n\nFor insulators or semiconductors, \
+either can work, but gamma-centered is fine if symmetry is preserved.\n\nIn \
+the following visulization, \n\nn: number of divisions along each reciprocal \
+axis\n\nLeft plot: \[CapitalGamma]-centered grid includes (0, 0)\n\nRight \
+plot: Shifted grid places points between the \[CapitalGamma]-centered ones \
+\[LongDash] does not include (0, 0)\n"
+}], "Text",
+ CellChangeTimes->{
+  3.958567434374057*^9, {3.958572193675469*^9, 3.958572242590929*^9}, {
+   3.958572276431446*^9, 3.958572285400799*^9}, 3.95857232983959*^9, {
+   3.958573405761712*^9, 3.958573417505847*^9}, 3.9585734515885077`*^9, {
+   3.958573486883149*^9, 3.958573489530224*^9}, {3.958573589209779*^9, 
+   3.958573601494919*^9}},ExpressionUUID->"f3deedc3-fb09-48db-88ef-\
+46b8ce91ce0f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Manipulate", "[", 
+   RowBox[{
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "kPointsGamma", ",", "kPointsShifted", ",", "range", ",", "spacing"}], 
+       "}"}], ",", 
+      RowBox[{
+       RowBox[{"spacing", "=", 
+        RowBox[{"2", " ", 
+         RowBox[{"\[Pi]", "/", "n"}]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"range", "=", 
+        RowBox[{"Range", "[", 
+         RowBox[{
+          RowBox[{"-", "\[Pi]"}], ",", "\[Pi]", ",", "spacing"}], "]"}]}], ";",
+        "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{"Gamma", "-", 
+         RowBox[{"centered", " ", 
+          RowBox[{"grid", ":", 
+           RowBox[{"includes", " ", "0"}]}]}]}], "*)"}], 
+       RowBox[{"kPointsGamma", "=", 
+        RowBox[{"Flatten", "[", 
+         RowBox[{
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"kx", ",", "ky"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"kx", ",", "range"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"ky", ",", "range"}], "}"}]}], "]"}], ",", "1"}], 
+         "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{"Shifted", " ", 
+         RowBox[{"grid", ":", 
+          RowBox[{
+          "shifted", " ", "by", " ", "half", " ", "a", " ", "spacing"}]}]}], 
+        "*)"}], 
+       RowBox[{"kPointsShifted", "=", 
+        RowBox[{"Flatten", "[", 
+         RowBox[{
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"kx", "+", 
+               RowBox[{"spacing", "/", "2"}]}], ",", 
+              RowBox[{"ky", "+", 
+               RowBox[{"spacing", "/", "2"}]}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"kx", ",", "range"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"ky", ",", "range"}], "}"}]}], "]"}], ",", "1"}], 
+         "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"GraphicsGrid", "[", 
+        RowBox[{"{", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Graphics", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"Blue", ",", 
+               RowBox[{"PointSize", "[", "Large", "]"}], ",", 
+               RowBox[{"Point", "[", "kPointsGamma", "]"}]}], "}"}], ",", 
+             RowBox[{"PlotRange", "->", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"-", "\[Pi]"}], ",", "\[Pi]"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"-", "\[Pi]"}], ",", "\[Pi]"}], "}"}]}], "}"}]}], ",", 
+             RowBox[{"Frame", "->", "True"}], ",", 
+             RowBox[{"AspectRatio", "->", "1"}], ",", 
+             RowBox[{
+             "PlotLabel", "->", "\"\<\[CapitalGamma]-centered Grid\>\""}]}], 
+            "]"}], ",", 
+           RowBox[{"Graphics", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"Red", ",", 
+               RowBox[{"PointSize", "[", "Large", "]"}], ",", 
+               RowBox[{"Point", "[", "kPointsShifted", "]"}]}], "}"}], ",", 
+             RowBox[{"PlotRange", "->", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"-", "\[Pi]"}], ",", "\[Pi]"}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"-", "\[Pi]"}], ",", "\[Pi]"}], "}"}]}], "}"}]}], ",", 
+             RowBox[{"Frame", "->", "True"}], ",", 
+             RowBox[{"AspectRatio", "->", "1"}], ",", 
+             RowBox[{
+             "PlotLabel", "->", "\"\<Shifted Grid (1/2 shift)\>\""}]}], 
+            "]"}]}], "}"}], "}"}], "]"}]}]}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"n", ",", "4", ",", "\"\<Grid size (n \[Times] n)\>\""}], 
+       "}"}], ",", "2", ",", "10", ",", "1"}], "}"}]}], "]"}], 
+  "\n"}]], "Input",
+ CellChangeTimes->{{3.958573518953341*^9, 3.958573518955867*^9}},
+ CellLabel->"In[5]:=",ExpressionUUID->"c730616f-7b41-4db6-92d0-f316e3b8b42c"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`n$$ = 4, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`n$$], 4, "Grid size (n \[Times] n)"}, 2, 10, 1, 
+      ControlType -> Manipulator}}, Typeset`size$$ = {
+    600., {161.3565432925207, 167.0884768862707}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True, 
+    Typeset`keyframeActionsQ$$ = False, Typeset`keyframeList$$ = {}}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`n$$ = 4}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$, Typeset`keyframeActionsQ$$, 
+        Typeset`keyframeList$$}, "Body" :> 
+      Module[{$CellContext`kPointsGamma$, $CellContext`kPointsShifted$, \
+$CellContext`range$, $CellContext`spacing$}, $CellContext`spacing$ = 
+         2 (Pi/$CellContext`n$$); $CellContext`range$ = 
+         Range[-Pi, Pi, $CellContext`spacing$]; $CellContext`kPointsGamma$ = 
+         Flatten[
+           
+           Table[{$CellContext`kx, $CellContext`ky}, {$CellContext`kx, \
+$CellContext`range$}, {$CellContext`ky, $CellContext`range$}], 
+           1]; $CellContext`kPointsShifted$ = Flatten[
+           
+           Table[{$CellContext`kx + $CellContext`spacing$/
+              2, $CellContext`ky + $CellContext`spacing$/
+              2}, {$CellContext`kx, $CellContext`range$}, {$CellContext`ky, \
+$CellContext`range$}], 1]; GraphicsGrid[{{
+            Graphics[{Blue, 
+              PointSize[Large], 
+              Point[$CellContext`kPointsGamma$]}, 
+             PlotRange -> {{-Pi, Pi}, {-Pi, Pi}}, Frame -> True, AspectRatio -> 
+             1, PlotLabel -> "\[CapitalGamma]-centered Grid"], 
+            Graphics[{Red, 
+              PointSize[Large], 
+              Point[$CellContext`kPointsShifted$]}, 
+             PlotRange -> {{-Pi, Pi}, {-Pi, Pi}}, Frame -> True, AspectRatio -> 
+             1, PlotLabel -> "Shifted Grid (1/2 shift)"]}}]], 
+      "Specifications" :> {{{$CellContext`n$$, 4, "Grid size (n \[Times] n)"},
+          2, 10, 1}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{
+      649.0999999999999, {209.02696870755977`, 214.75890230130977`}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.958573521273947*^9},
+ CellLabel->"Out[5]=",ExpressionUUID->"67542a28-47e6-4d22-a648-26afbe74573f"]
+}, Open  ]],
+
+Cell[TextData[{
+ "\|01f535 \[CapitalGamma]-Centered Grid\n- Includes the \
+\[CapitalGamma]-point (k = 0,0)\n\n-Preserves symmetry (good for band \
+structures)\n\n- May overweight central region \[RightArrow] less uniform \
+sampling\n\n-Preferred for insulators, semiconductors, and band structure \
+plots\n\n\|01f534 Shifted Grid (1/2 shift)\n- Excludes the \
+\[CapitalGamma]-point\n\n- Provides more uniform Brillouin zone sampling\n\n\
+-Typically gives better total energy convergence\n\n- Preferred for metals \
+and dense integration\n\n- Breaks central symmetry (not ideal for band path \
+plotting)\n\n",
+ StyleBox[" Simulation Teaches:",
+  FontWeight->"Bold"],
+ "\n\nShifted grids \[OpenCurlyDoubleQuote]fill the gaps\
+\[CloseCurlyDoubleQuote] between \[CapitalGamma]-centered points.\n\n\
+Increasing grid size (n) shows how grids become denser and smoother.\n\nYou \
+visually see why shifted grids integrate better \[LongDash] more even \
+coverage of BZ."
+}], "Text",
+ CellChangeTimes->{{3.9585737906809177`*^9, 
+  3.9585738263211327`*^9}},ExpressionUUID->"5ac23312-2a75-4f17-8d49-\
+c228af44fcfa"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1223, 873},
+WindowMargins->{{-30, Automatic}, {Automatic, 19}},
+FrontEndVersion->"14.2 for Mac OS X ARM (64-bit) (March 16, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"664e8a56-a106-48d0-aa01-e2b9ff7a295b"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ChatGeneratedCell"->{
+  Cell[8525, 205, 4722, 117, 417, "Input",ExpressionUUID->"17bc518b-94d2-4335-b02a-f0a668e36c5e",
+   CellTags->"ChatGeneratedCell"],
+  Cell[13250, 324, 3323, 66, 326, "Output",ExpressionUUID->"3b43366f-0314-4e73-876a-c2529a13c3ca",
+   CellTags->"ChatGeneratedCell"],
+  Cell[16803, 403, 6497, 167, 560, "Input",ExpressionUUID->"8f940948-a3b1-4aaf-a481-9bfa82b58072",
+   CellTags->"ChatGeneratedCell"],
+  Cell[23303, 572, 4027, 76, 358, "Output",ExpressionUUID->"73538769-2fa7-47e5-ba53-f0f0d1004012",
+   CellTags->"ChatGeneratedCell"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ChatGeneratedCell", 38791, 915}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 172, 3, 96, "Title",ExpressionUUID->"1ecbed2a-fc34-41e7-a618-cf5a0cdeb4e2"],
+Cell[751, 27, 163, 3, 30, "Author",ExpressionUUID->"6eaba1a0-4d1d-4d79-92b6-7da6b1f77582"],
+Cell[917, 32, 218, 6, 53, "Affiliation",ExpressionUUID->"3981fac9-f504-48a1-b7aa-20726c277a54"],
+Cell[1138, 40, 2138, 56, 243, "Text",ExpressionUUID->"4e7b3b3a-a990-46e4-aec3-44414d22654b"],
+Cell[3279, 98, 2175, 47, 151, "Text",ExpressionUUID->"271b5c53-4613-487e-abda-d652de2a1298"],
+Cell[5457, 147, 2026, 30, 930, "Text",ExpressionUUID->"d56128a9-6c7d-4880-b6b8-a0754b281d45"],
+Cell[7486, 179, 833, 15, 252, "Text",ExpressionUUID->"293c1590-919f-4840-ba67-154d616e5400"],
+Cell[CellGroupData[{
+Cell[8344, 198, 156, 3, 66, "Section",ExpressionUUID->"c527a792-16e3-4dcd-b1cb-a5018bebecac"],
+Cell[CellGroupData[{
+Cell[8525, 205, 4722, 117, 417, "Input",ExpressionUUID->"17bc518b-94d2-4335-b02a-f0a668e36c5e",
+ CellTags->"ChatGeneratedCell"],
+Cell[13250, 324, 3323, 66, 326, "Output",ExpressionUUID->"3b43366f-0314-4e73-876a-c2529a13c3ca",
+ CellTags->"ChatGeneratedCell"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16622, 396, 156, 3, 66, "Section",ExpressionUUID->"688579a7-a305-46e6-a912-797e53cac126"],
+Cell[CellGroupData[{
+Cell[16803, 403, 6497, 167, 560, "Input",ExpressionUUID->"8f940948-a3b1-4aaf-a481-9bfa82b58072",
+ CellTags->"ChatGeneratedCell"],
+Cell[23303, 572, 4027, 76, 358, "Output",ExpressionUUID->"73538769-2fa7-47e5-ba53-f0f0d1004012",
+ CellTags->"ChatGeneratedCell"]
+}, Open  ]],
+Cell[27345, 651, 177, 2, 29, "Input",ExpressionUUID->"6a1274c6-55e7-4973-b87e-161bf47fe9ad"],
+Cell[27525, 655, 2444, 47, 1104, "Text",ExpressionUUID->"f3deedc3-fb09-48db-88ef-46b8ce91ce0f"],
+Cell[CellGroupData[{
+Cell[29994, 706, 4189, 109, 192, "Input",ExpressionUUID->"c730616f-7b41-4db6-92d0-f316e3b8b42c"],
+Cell[34186, 817, 3104, 60, 440, "Output",ExpressionUUID->"67542a28-47e6-4d22-a648-26afbe74573f"]
+}, Open  ]],
+Cell[37305, 880, 1103, 20, 602, "Text",ExpressionUUID->"5ac23312-2a75-4f17-8d49-c228af44fcfa"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

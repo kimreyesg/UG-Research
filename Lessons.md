@@ -122,3 +122,46 @@ The Fermi level is the chemical potential fixed by **both** the number of electr
 Large energy gaps relative to \(k_BT\) let us treat the lowest occupied state as essentially full and higher states as empty, pinning \(E_F\) narrowly just above the lowest level.
 
 
+## Quantum Dots: Confinement Effects on Energy Levels
+
+In semiconductor quantum dots, both electrons and holes are confined in all three spatial dimensions. This spatial confinement quantizes their energies and shifts them relative to the bulk band edges.
+
+### Equations
+
+- **LUMO energy (lowest unoccupied state for electrons):**
+
+\[
+E_{\text{LUMO}} 
+= E_{\text{CBM}} 
++ \frac{3 \hbar^2}{2 m_e^*} \left(\frac{\pi}{L}\right)^2
+\]
+
+- **HOMO energy (highest occupied state for holes):**
+
+\[
+E_{\text{HOMO}} 
+= E_{\text{VBM}} 
+- \frac{3 \hbar^2}{2 m_h^*} \left(\frac{\pi}{L}\right)^2
+\]
+
+where:
+
+- \(E_{\text{CBM}}\) = conduction band minimum of the bulk semiconductor.
+- \(E_{\text{VBM}}\) = valence band maximum of the bulk semiconductor.
+- \(m_e^*\) = effective mass of electrons.
+- \(m_h^*\) = effective mass of holes.
+- \(L\) = size (length) of the quantum dot.
+
+### Physical meaning
+
+✅ Electrons confined in the dot have energies shifted **upward** relative to the bulk CBM.
+
+✅ Holes confined in the dot have energies shifted **downward** relative to the bulk VBM.
+
+✅ This increases the band gap of the quantum dot compared to the bulk semiconductor, causing quantum dots to emit light at shorter wavelengths.
+
+**Short rule:**
+
+> Confinement in quantum dots pushes electrons **up** and holes **down**, widening the band gap. These shifts only happen to the carriers trapped inside the dot.
+
+

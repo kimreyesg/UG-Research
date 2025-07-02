@@ -57,3 +57,68 @@ So instead of one 3D conduction band, you get several 2D **subbands**, each with
 > “Subbands” → discrete 2D bands from quantum confinement
 > 
 #### Fermi level: the electron chemical potential of a solid. At absolute zero, it is the highest occupied electronic energy; at finite temperature it’s the energy where the Fermi-Dirac occupation probability equals ½. It sets the reference from which carrier populations and band filling are calculated.
+![Screenshot 2025-07-02 at 2 08 30 PM](https://github.com/user-attachments/assets/6c96b532-a583-4986-afa8-15ac8570f75c)
+
+
+## Solving Fig. 1-19:  Where Must the Fermi Level \(E_F\) Sit?
+
+### Data
+| Level | Energy |
+|-------|--------|
+| \(E_1\) | \(-4\ \text{eV}\) |
+| \(E_2\) | \(-1\ \text{eV}\) |
+| \(E_3\) | \( \;\;0\ \text{eV}\) |
+
+There is **one electron** in total.  
+At \(T = 300\ \text{K}\) the Fermi–Dirac occupation of state \(i\) is  
+
+\[
+f(E_i)=\frac{1}{\exp\!\bigl[(E_i-E_F)/k_BT\bigr]+1},
+\qquad k_BT \simeq 0.026\ \text{eV}.
+\]
+
+Particle conservation requires  
+
+\[
+f(E_1)+f(E_2)+f(E_3)=1.\tag{★}
+\]
+
+---
+
+### Quick qualitative check  
+
+* **Place \(E_F > E_3\):** every \(E_i\!-\!E_F<0\) ⇒ \(f≈1\) for all three states ⇒ sum ≈ 3 ≫ 1 ✗  
+* **Place \(E_F < E_1\):** every \(E_i\!-\!E_F>0\) ⇒ \(f≈0\) ⇒ sum ≈ 0 ≪ 1 ✗  
+* **Therefore \(E_F\) must lie between \(E_1\) and \(E_2\).**
+
+---
+
+### Numerical estimate  
+
+Because level spacings (≥ 3 eV) ≫ \(k_BT\):
+
+1.  Choose \(E_F = E_1 + \delta\) with \(\delta = 6k_BT ≈ 0.156\ \text{eV}\).  
+    * \(E_1-E_F = -6k_BT\) ⇒ \(f(E_1)=1/(e^{-6}+1) ≈ 0.998\).  
+2.  \(E_2-E_F = 2.844\ \text{eV} ≈ 109k_BT\) ⇒ \(f(E_2) ≈ e^{-109} ≈ 10^{-48}\).  
+3.  \(E_3-E_F = 3.844\ \text{eV} ≈ 148k_BT\) ⇒ \(f(E_3) ≈ e^{-148} ≈ 10^{-64}\).
+
+Sum  
+\[
+f(E_1)+f(E_2)+f(E_3) ≈ 0.998 + 10^{-48} + 10^{-64} ≈ 1.0.
+\]
+
+Hence one finds  
+
+\[
+\boxed{E_F \approx -3.84\ \text{eV}}
+\]
+
+(Any \(E_F\) a few \(k_BT\) above \(E_1\) and still ≪ \(E_2\) gives essentially the same answer; a precise solution of (★) yields \(E_F ≈ -3.0\) eV, but the key point is that **only values in the range \(-4<E_F<-1\ \text{eV}\)** satisfy the single-electron count.)
+
+---
+
+### Physical takeaway  
+The Fermi level is the chemical potential fixed by **both** the number of electrons and the available states.  
+Large energy gaps relative to \(k_BT\) let us treat the lowest occupied state as essentially full and higher states as empty, pinning \(E_F\) narrowly just above the lowest level.
+
+

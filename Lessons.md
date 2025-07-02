@@ -205,5 +205,16 @@ Even though it’s the same semiconductor material:
 - Electrons are confined → **CBM energy shifts upward**.
 - Holes are confined → **VBM energy shifts downward**.
 
-This **widens the band gap** in a quantum dot r
+This **widens the band gap** in a quantum dot relative to the bulk.
+
+✅ The shift comes from the **increase in kinetic energy** due to confinement.
+
+---
+
+**Short rules:**
+
+> - A quantum dot is the same semiconductor, just made small enough for quantum effects.
+> - The “band edge profile” comes from confinement boundaries, not different materials.
+> - Confinement pushes electrons up and holes down in energy, increasing the band gap.
+
 

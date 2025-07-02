@@ -251,3 +251,7 @@ This **widens the band gap** in a quantum dot relative to the bulk.
 
 > Quantum dots are nanometers in size. Bulk materials are microns or larger—**millions of times bigger**.
 
+![Screenshot 2025-07-02 at 3 26 36 PM](https://github.com/user-attachments/assets/347887e3-ee82-4f22-81dd-d38a7d17dbdb)
+
+
+

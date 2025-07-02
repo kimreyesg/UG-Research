@@ -157,4 +157,53 @@ where:
 > Confinement in quantum dots pushes electrons **up** and holes **down**, widening the band gap. These shifts only happen to the carriers trapped inside the dot.
 
 
+Hence the gap increases with decreasing dot size
+and the energy change scales inversely with the reduced electron–hole mass and inversely
+with the diameter to the second power within this model. By changing the diameter of
+the quantum dots made out of the same semiconductor, one can dramatically change its
+transport and optical properties.
+
+Short rule:
+
+Bulk = continuous bands from continuous k.
+Quantum dot = discrete energy levels from discrete k (quantum numbers).
+
+quantum dots have discrete states because confinement quantizes k → only certain standing waves fit in the dot → discrete energies.
+
+## Quantum Dots and Band Edge Profiles
+
+### Is a quantum dot just a small piece of semiconductor?
+
+✅ Yes. A quantum dot is the **same semiconductor material** (e.g. CdSe, GaAs), just made very small (a few nanometers in size).  
+
+- In bulk → continuous energy bands.
+- In a quantum dot → **size confinement** makes energy levels discrete.
+
+Changing the dot size changes the **band gap**, which tunes optical properties like color.
+
+---
+
+### How is the band edge profile created if it’s the same semiconductor?
+
+✅ In a quantum dot made of a single semiconductor:
+
+- There’s **no heterojunction** (no step change in band edges between different materials).
+- Instead, the “well” comes from:
+  - The **finite physical size** of the dot.
+  - The fact that electrons and holes **can’t escape outside** the dot into vacuum or into surrounding materials.
+
+This confinement acts like a **particle-in-a-box**:
+- Inside the dot → electrons and holes move freely.
+- At the edges → a high potential barrier prevents them from leaving.
+
+---
+
+### Why do band edges shift in a quantum dot?
+
+Even though it’s the same semiconductor material:
+
+- Electrons are confined → **CBM energy shifts upward**.
+- Holes are confined → **VBM energy shifts downward**.
+
+This **widens the band gap** in a quantum dot r
 

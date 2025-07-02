@@ -130,27 +130,19 @@ In semiconductor quantum dots, both electrons and holes are confined in all thre
 
 - **LUMO energy (lowest unoccupied state for electrons):**
 
-\[
-E_{\text{LUMO}} 
-= E_{\text{CBM}} 
-+ \frac{3 \hbar^2}{2 m_e^*} \left(\frac{\pi}{L}\right)^2
-\]
+    E_LUMO = E_CBM + [3 ℏ² / (2 m*_e)] · (π / L)²
 
 - **HOMO energy (highest occupied state for holes):**
 
-\[
-E_{\text{HOMO}} 
-= E_{\text{VBM}} 
-- \frac{3 \hbar^2}{2 m_h^*} \left(\frac{\pi}{L}\right)^2
-\]
+    E_HOMO = E_VBM − [3 ℏ² / (2 m*_h)] · (π / L)²
 
 where:
 
-- \(E_{\text{CBM}}\) = conduction band minimum of the bulk semiconductor.
-- \(E_{\text{VBM}}\) = valence band maximum of the bulk semiconductor.
-- \(m_e^*\) = effective mass of electrons.
-- \(m_h^*\) = effective mass of holes.
-- \(L\) = size (length) of the quantum dot.
+- E_CBM = conduction band minimum of the bulk semiconductor
+- E_VBM = valence band maximum of the bulk semiconductor
+- m*_e = effective mass of electrons
+- m*_h = effective mass of holes
+- L = size (length) of the quantum dot
 
 ### Physical meaning
 
@@ -163,5 +155,6 @@ where:
 **Short rule:**
 
 > Confinement in quantum dots pushes electrons **up** and holes **down**, widening the band gap. These shifts only happen to the carriers trapped inside the dot.
+
 
 

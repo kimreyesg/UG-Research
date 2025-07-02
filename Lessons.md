@@ -217,4 +217,37 @@ This **widens the band gap** in a quantum dot relative to the bulk.
 > - The “band edge profile” comes from confinement boundaries, not different materials.
 > - Confinement pushes electrons up and holes down in energy, increasing the band gap.
 
+## How Small is a Quantum Dot Compared to Bulk?
+
+✅ A **quantum dot / nanocrystal** is typically **2–10 nanometers** in diameter.
+
+- That’s roughly **10 to 100 atoms wide**.
+
+✅ A **bulk crystal** is vastly larger:
+
+- Typical grain size: ~1 μm to mm scale
+- Semiconductor wafer: cm scale
+
+---
+
+### Size comparison table
+
+| Material form | Typical size |
+|---------------|--------------|
+| Quantum dot / nanocrystal | ~2–10 nm |
+| Bulk crystal grain | ~1 μm to mm |
+| Wafer | cm scale |
+
+---
+
+### Physical meaning
+
+- A quantum dot behaves like a giant “molecule” with **discrete energy levels**.
+- Bulk material has **continuous energy bands** because it’s much larger.
+
+---
+
+**Short rule:**
+
+> Quantum dots are nanometers in size. Bulk materials are microns or larger—**millions of times bigger**.
 

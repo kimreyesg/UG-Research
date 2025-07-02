@@ -56,4 +56,4 @@ So instead of one 3D conduction band, you get several 2D **subbands**, each with
 > “Bands” → bulk 3D  
 > “Subbands” → discrete 2D bands from quantum confinement
 > 
-### Fermi level: the electron chemical potential of a solid. At absolute zero, it is the highest occupied electronic energy; at finite temperature it’s the energy where the Fermi-Dirac occupation probability equals ½. It sets the reference from which carrier populations and band filling are calculated.
+#### Fermi level: the electron chemical potential of a solid. At absolute zero, it is the highest occupied electronic energy; at finite temperature it’s the energy where the Fermi-Dirac occupation probability equals ½. It sets the reference from which carrier populations and band filling are calculated.

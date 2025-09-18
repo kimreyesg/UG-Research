@@ -8,6 +8,14 @@ This is your go-to resource for exploring the world of materials science, starti
 - **Practical Examples**: Input files, output analyses, and visualizations.
 - **Interactive Tools**: Mathematica notebooks to explore key concepts and develop an intuitive understanding of electronic properties.
 
+
+Useful links:
+
+https://ptable.com/#Properties
+https://next-gen.materialsproject.org/
+https://www.physics.rutgers.edu/pythtb/index.html
+
+
 ## Repository Contents 📂
 
 ### 1. Foundational Concepts 📚

@@ -11,9 +11,9 @@ This is your go-to resource for exploring the world of materials science, starti
 
 Useful links:
 
-https://ptable.com/#Properties
-https://next-gen.materialsproject.org/
-https://www.physics.rutgers.edu/pythtb/index.html
+- https://ptable.com/#Properties
+- https://next-gen.materialsproject.org/
+- https://www.physics.rutgers.edu/pythtb/index.html
 
 
 ## Repository Contents 📂
